@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../config/variables" as vars;
+
+$spacing-data: (
+  none: 0,
+  xs: vars.$spacing-unit / 4,
+  sm: vars.$spacing-unit / 2,
+  base: vars.$spacing-unit,
+  lg: vars.$spacing-unit * 2,
+  xl: vars.$spacing-unit * 4
+);
+
+@function spacing($variant: base) {
+  $value: map.get($spacing-data, $variant);
+
+  @if meta.type-of($value) == number {
+    @return $value;
+  }
+  @error "Spacing variant `#{$variant}` not found in $spacing-data";
+}

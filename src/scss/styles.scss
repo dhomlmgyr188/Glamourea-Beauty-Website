@@ -1,5 +1,20 @@
+// Base Folder
+@use "./base/fonts";
+@use "./base/links";
+@use "./base/reset";
+@use "./base/typography";
+
 // Components Folder
 @use "./components/components";
+
+// Config Folder
+@use "./config/colors";
+@use "./config/variables";
+@use "./config/layout";
+
+// Utilities Folder
+@use "./utilities/mixin-card";
+@use "./utilities/spacing";
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";

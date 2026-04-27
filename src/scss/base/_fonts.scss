@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../config/variables" as vars;
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('/assets/fonts/Rubik-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Rubik';
+    src: url('/assets/fonts/Rubik-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+$font-family: 'Rubik','Courier New',sans-serif;
+
+$font-size: (
+  none: 0,
+  xs: vars.$font-base * 0.5,
+  sm: vars.$font-base * 0.75,
+  base: vars.$font-base,
+  lg: vars.$font-base * 1.25,
+  xl: vars.$font-base * 1.5,
+  xxl: vars.$font-base * 2
+);
+
+@function fonts($variant: base) {
+  $value: map.get($font-size, $variant);
+
+  @if meta.type-of($value) == number {
+    @return $value;
+  }
+  @error "Font variant `#{$variant}` not found in $font-size";
+}

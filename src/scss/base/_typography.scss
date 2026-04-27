@@ -1,0 +1,34 @@
+@use "../utilities/spacing" as spacing;
+@use "../base/fonts" as fonts;
+
+p,span{
+    margin-top: 0 !important;
+    margin-bottom: spacing.spacing(base) !important;
+    font-weight: normal !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0 !important;
+  margin-bottom: spacing.spacing(sm) !important;
+  font-weight: bold !important;
+}
+
+h1{
+    font-size: fonts.fonts(xxl) !important;
+}
+h2{
+    font-size: fonts.fonts(xl) !important;
+}
+h3{
+    font-size: fonts.fonts(lg) !important;
+}
+h4{
+    font-size: fonts.fonts(base) !important;
+}
+h5{
+    font-size: fonts.fonts(sm) !important;
+}
+h6{
+    font-size: fonts.fonts(xs) !important;
+}
+

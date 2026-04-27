@@ -1,0 +1,15 @@
+@use 'sass:color';
+@use '../config/colors' as colors;
+@use '../utilities/spacing' as spacing;
+
+@mixin e-card {
+    background-color: colors.$white-color;
+    border-radius: spacing.spacing(xs);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: spacing.spacing(lg);
+    border-radius: spacing.spacing(xs);
+    transition: all 0.3s ease;
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}

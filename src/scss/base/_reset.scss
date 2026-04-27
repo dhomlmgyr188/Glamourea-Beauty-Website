@@ -1,0 +1,15 @@
+@use "./fonts" as fonts;
+@use "../config/variables" as vars;
+@use "../config/colors" as colors;
+
+html{
+    direction: rtl !important;
+}
+
+body{
+    font-family: fonts.$font-family !important;
+    font-size: vars.$font-base !important;
+    color: colors.$text-color !important;
+    background-color: colors.$background-color !important;
+    line-height: vars.$line-height !important;
+}
