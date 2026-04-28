@@ -9,7 +9,6 @@ $success-color: #6BA368;
 $warning-color: #E0A458;
 
 $link-color: #3ea2d1;
-$link-visited-color: #3e72d1;
 
 $light-color: #F5F5F5;
 $dark-color: #333333;
@@ -18,5 +17,8 @@ $black-color: #000000;
 
 $background-color: $light-color;
 $text-color: $dark-color;
+
+$bg-primary-color: color.adjust($primary-color, $lightness: 20%);
+$bg-secondary-color: color.adjust($primary-color, $lightness: -20%);
 
 

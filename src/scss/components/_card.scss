@@ -42,7 +42,7 @@
     .custom-carousel {
         &__inner {
             height: 400px;
-            border-radius: spacing.spacing(base) !important;
+            border-radius: spacing.spacing(base);
         }
 
         &__indicators {
@@ -77,6 +77,6 @@
 .c-card--team {
     width: 350px;
     .c-card__desc {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
     }
 }

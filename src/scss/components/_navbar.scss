@@ -1,0 +1,55 @@
+@use "../config/colors" as colors;
+@use "../utilities/spacing" as spacing;
+@use "../base/fonts" as fonts;
+@use "sass:color";
+$navbar-height: 64px;
+
+.c-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: colors.$bg-primary-color;
+    padding: 0 spacing.spacing(xl);
+    min-height: $navbar-height;
+    z-index: 1000;
+
+    &__links,
+    &__logo {
+        a {
+            color: colors.$white-color;
+        }
+    }
+
+    &__logo {
+        font-size: fonts.fonts(xl);
+        font-weight: bold;
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        a {
+            display: flex;
+            align-items: center;
+            min-height: $navbar-height;
+            padding: 0 spacing.spacing(base);
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: colors.$primary-color;
+                color: colors.$white-color;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: spacing.spacing(sm);
+    }
+}
