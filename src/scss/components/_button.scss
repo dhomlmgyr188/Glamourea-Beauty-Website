@@ -4,11 +4,13 @@
 @use "sass:color";
 
 .c-btn{
-    display: inline-block;
+    text-align: center;
+    display: inline-block !important;
     padding: spacing.spacing(sm) spacing.spacing(lg);
     border: none;
     outline: none;
     border-radius: spacing.spacing(xs);
+    color: colors.$dark-color !important;
     background-color: colors.$white-color;
     box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
@@ -25,14 +27,18 @@
     }
 
     &--primary,
+    &--info,
     &--danger,
     &--success,
     &--warning{
-        color: colors.$white-color;
+        color: colors.$white-color !important;
     }
 }
 
 .c-btn--primary{
+    background-color: colors.$primary-color;
+}
+.c-btn--info{
     background-color: colors.$info-color;
 }
 .c-btn--danger{

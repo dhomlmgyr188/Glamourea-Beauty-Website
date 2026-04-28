@@ -7,8 +7,4 @@ a {
   &:link {
     color: colors.$link-color;
   }
-
-  &:visited {
-    color: colors.$link-visited-color !important;
-  }
 }

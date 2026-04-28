@@ -1,0 +1,104 @@
+{{#> components-container title='Card'}}
+
+<div class="c-card">
+  <div class="c-card__images">
+    <img src="../assets/images/glamourea1.PNG" alt="glamourea" />
+  </div>
+    <h3 class="c-card__title">بروتين الشعر</h3>
+    <p class="c-card__desc">
+      علاج احترافي لإصلاح وتغذية الشعر التالف، يمنحك نعومة ولمعانًا يدوم طويلاً
+      ويقلل من الهيشان والتقصف.
+    </p>
+    <a href="#" class="c-card__btn c-btn c-btn--primary">
+      <i class="fas fa-shopping-cart"></i>
+      احجزي الأن
+    </a>
+</div>
+
+<div class="c-card c-card--rating">
+  <div
+    id="carouselExampleAutoplaying"
+    class="carousel custom-carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators custom-carousel__indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner custom-carousel__inner">
+      <div class="carousel-item active">
+        <img
+          src="../assets/images/rate1.jpg"
+          class="d-block w-100"
+          alt="rate"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../assets/images/rate2.jpg"
+          class="d-block w-100"
+          alt="rate"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../assets/images/rate3.jpg"
+          class="d-block w-100"
+          alt="rate"
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev custom-carousel__carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
+      <i
+        class="fa-solid fa-angle-left custom-carousel__carousel-control-prev-icon"
+        aria-hidden="true"
+      ></i>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next custom-carousel__carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
+      <i
+        class="fa-solid fa-angle-right custom-carousel__carousel-control-next-icon"
+        aria-hidden="true"
+      ></i>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="c-card c-card--team">
+    <div class="clearfix">
+      <h3 class="c-card__title float-end">اسراء المغير</h3>
+      <span class="c-card__badge float-start">مديرة الصالون</span>
+    </div>
+    <p class="c-card__desc">خبرة 8 سنوات في إدارة وتنسيق خدمات الصالون وتطوير تجربة العميل</p>
+</div>
+
+{{/components-container}}

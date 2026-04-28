@@ -6,6 +6,11 @@ export default {
   plugins: [
     handlebars({
       partialDirectory: "./src/partials",
+      helpers: {
+        array: (...args) => {
+          return args.slice(0, -1); 
+        },
+      },
     }),
   ],
   resolve: {
