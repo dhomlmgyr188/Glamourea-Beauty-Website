@@ -2,7 +2,7 @@
 @use "../utilities/spacing" as spacing;
 @use "../base/fonts" as fonts;
 @use "sass:color";
-$navbar-height: 64px;
+$navbar-height: 80px;
 
 .c-navbar {
     position: fixed;
@@ -11,12 +11,27 @@ $navbar-height: 64px;
     right: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    background-color: colors.$bg-primary-color;
     padding: 0 spacing.spacing(xl);
     min-height: $navbar-height;
     z-index: 1000;
+
+    &::before {
+        background-color: colors.$bg-primary-color;
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.4s ease;
+        z-index: -1;
+    }
+
+    &.is-scrolled::before {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     &__links,
     &__logo {
@@ -33,23 +48,28 @@ $navbar-height: 64px;
     &__links {
         display: flex;
         flex-wrap: wrap;
+        gap: spacing.spacing(base);
         margin: 0 auto;
+
         a {
             display: flex;
             align-items: center;
-            min-height: $navbar-height;
-            padding: 0 spacing.spacing(base);
+            padding: spacing.spacing(sm);
+            border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
+
             &:hover {
-                background-color: colors.$primary-color;
-                color: colors.$white-color;
+                border-bottom: 3px solid colors.$primary-color;
             }
+        }
+        a.active{
+            border-bottom: 3px solid colors.$primary-color;
         }
     }
 
     &__actions {
         display: flex;
         align-items: center;
-        gap: spacing.spacing(sm);
+        gap: spacing.spacing(base);
     }
 }

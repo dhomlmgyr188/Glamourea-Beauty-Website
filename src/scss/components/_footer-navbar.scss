@@ -2,7 +2,7 @@
 @use "../utilities/spacing" as spacing;
 @use "../base/fonts" as fonts;
 @use "sass:color";
-$footer-height: 64px;
+$footer-height: 80px;
 
 .c-footer {
     background-color: colors.$bg-primary-color;
@@ -126,10 +126,11 @@ $footer-height: 64px;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        background-color: colors.$bg-secondary-color;
         font-size: fonts.fonts(sm);
         min-height: $footer-height;
         padding: 0 spacing.spacing(xl);
+        border-top: 1px solid colors.$white-color;
+
     }
 
     .c-footer__copyright {

@@ -2,7 +2,7 @@
 @use "../config/variables" as vars;
 @use "../config/colors" as colors;
 @use "../utilities/spacing" as spacing;
-
+$navbar-height: 80px;
 html{
     direction: rtl;
 }
@@ -23,4 +23,9 @@ body{
     color: colors.$text-color !important;
     background-color: colors.$background-color !important;
     line-height: vars.$line-height !important;
+}
+section{
+    padding-top: $navbar-height !important;
+    scroll-margin: $navbar-height;
+    scroll-behavior: smooth;
 }

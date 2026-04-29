@@ -19,6 +19,6 @@ $background-color: $light-color;
 $text-color: $dark-color;
 
 $bg-primary-color: color.adjust($primary-color, $lightness: 20%);
-$bg-secondary-color: color.adjust($primary-color, $lightness: -20%);
+$bg-secondary-color: color.adjust($primary-color, $lightness: 25%);
 
 

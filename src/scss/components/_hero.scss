@@ -1,0 +1,68 @@
+@use "../base/fonts" as fonts;
+@use "../config/colors" as colors;
+@use "../utilities/spacing" as spacing;
+
+.se{
+    height: 100vh;
+}
+.c-hero{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: spacing.spacing(lg);
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 spacing.spacing(xl);
+    color: colors.$white-color;
+    background: url(../../assets/images/bg-hero.jpg) center no-repeat;
+    background-size: cover;
+        
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+    
+    &__title{
+        font-size: 64px !important;
+        font-weight: normal !important;
+        margin-bottom: 0;
+        span{
+            font-weight: bold;
+            color: colors.$primary-color;
+        }
+    }
+
+    &__desc{
+        font-size: fonts.fonts(lg);
+        max-width: 600px;
+        margin-bottom: 0;
+    }
+
+    &__actions{
+        display: flex;
+        flex-wrap: wrap;
+        gap: spacing.spacing(lg);
+    }
+
+    &__list{
+        display: flex;
+        margin-top: spacing.spacing(lg);
+        li{
+            padding: 0 spacing.spacing(lg);
+            border-left: 2px solid colors.$white-color;
+            &:last-child{
+                border-left: none;
+            }
+        }
+    }
+}
