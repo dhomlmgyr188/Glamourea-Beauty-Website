@@ -1,6 +1,6 @@
-@use "../config/colors" as colors;
-@use "../utilities/spacing" as spacing;
-@use "../base/fonts" as fonts;
+@use "../../config/colors" as colors;
+@use "../../utilities/spacing" as spacing;
+@use "../../base/fonts" as fonts;
 @use "sass:color";
 $navbar-height: 80px;
 

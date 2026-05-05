@@ -1,20 +1,15 @@
+@use "./config/colors" as colors;
 // Base Folder
-@use "./base/fonts";
-@use "./base/links";
-@use "./base/reset";
-@use "./base/typography";
-
-// Components Folder
-@use "./components/components";
+@use "./base";
 
 // Config Folder
-@use "./config/colors";
-@use "./config/variables";
-@use "./config/layout";
+@use "./config";
+
+// Components Folder
+@use "./components";
 
 // Utilities Folder
-@use "./utilities/mixin-card";
-@use "./utilities/spacing";
+@use "./utilities";
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";

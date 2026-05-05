@@ -1,0 +1,5 @@
+@use "../../../config/colors" as colors;
+
+.c-label{
+    color: colors.$primary-color !important;
+}

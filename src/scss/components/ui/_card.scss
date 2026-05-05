@@ -1,7 +1,7 @@
-@use "../utilities/mixin-card" as mixin-card;
-@use "../utilities/spacing" as spacing;
-@use "../config/colors" as colors;
-@use "../base/fonts" as fonts;
+@use "../../utilities/mixin-card" as mixin-card;
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
 
 .c-card {
     @include mixin-card.e-card;
