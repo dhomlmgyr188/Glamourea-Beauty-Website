@@ -2,9 +2,7 @@
 @use "../../config/colors" as colors;
 @use "../../utilities/spacing" as spacing;
 
-.se{
-    height: 100vh;
-}
+
 .c-hero{
     position: relative;
     display: flex;
@@ -17,7 +15,7 @@
     width: 100%;
     padding: 0 spacing.spacing(xl);
     color: colors.$white-color;
-    background: url(../../assets/images/bg-hero.jpg) center no-repeat;
+    background: url(/assets/images/bg-hero.jpg) center no-repeat;
     background-size: cover;
         
     &::before {

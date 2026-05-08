@@ -1,0 +1,42 @@
+@use "../../config/colors" as colors;
+@use "../../utilities/spacing" as spacing;
+$width: 20px;
+$height: 20px;
+
+.c-form__checkbox {
+    display: flex;
+    align-items: center;
+    gap: spacing.spacing(sm);
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+    span{
+        margin-bottom: 0;
+    }
+}
+
+
+.c-form__checkmark {
+    width: $width;
+    height: $height;
+    border: 2px solid colors.$dark-color;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.c-form__checkbox input:checked+.c-form__checkmark {
+    border-color: colors.$success-color;
+    background: adjust-color(colors.$success-color, $lightness: 10%);
+}
+
+.c-form__checkbox input:checked+.c-form__checkmark::after {
+    content: "✔";
+    color: colors.$white-color;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}

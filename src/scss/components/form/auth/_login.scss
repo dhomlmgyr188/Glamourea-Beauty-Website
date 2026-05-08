@@ -1,5 +1,3 @@
-@use "../../../config/colors" as colors;
-
-.c-label{
-    color: colors.$primary-color !important;
+.c-form--login{
+    max-width: 500px;
 }

@@ -26,7 +26,9 @@
     &:focus{
         box-shadow: inset 0 0 0 2px rgba(0,0,0,0.4);
     }
-
+    &--icon--google,
+    &--icon--facebook,
+    &--icon--twitter,
     &--primary,
     &--secondary,
     &--info,
@@ -79,3 +81,7 @@
         box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9);
     }
 }
+
+.c-btn--icon--google{ background-color:colors.$google-color ;}
+.c-btn--icon--facebook{ background-color: colors.$facebook-color;}
+.c-btn--icon--twitter{ background-color: colors.$twitter-color;}

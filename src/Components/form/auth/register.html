@@ -1,4 +1,69 @@
 {{#> components-container title="register"}}
-<form action="#" method="post" class="c-form c-form--register"></form>
+<form action="#" method="post" class="c-form c-form--register">
+    <h2 class="c-form__title">تسجيل جديد</h2>
+    <div class="c-form__group">
+        <label for="username" class="c-label"> اسم المستخدم</label>
+        <input type="text" class="c-input" name="username" id="username" placeholder="ضع اسم المستخدم" required>
+    </div>
+    <div class="c-form__group">
+        <label for="email" class="c-label"> البريد الإلكتروني</label>
+        <input type="email" class="c-input" name="email" id="email" placeholder="ضع بريدك الإلكتروني" required>
+    </div>
+    <div class="c-form__group">
+        <label for="password" class="c-label"> كلمة السر</label>
+        <input type="password" class="c-input" name="password" id="password" placeholder="ضع كلمة السر" required>
+    </div>
+    <div class="c-form__group">
+        <label for="confirmPassword" class="c-label"> تأكيد كلمة السر</label>
+        <input type="password" class="c-input" name="confirm-password" id="confirmPassword" placeholder="تأكيد كلمة السر" required>
+    </div>
+      
+    <div class="c-form__group">
+        <label class="c-form__checkbox">
+            <input type="checkbox" name="terms-of-use" id="termsOfUse">
+            <span class="c-form__checkmark"></span>
+        لقد قرأت ووافقت على <a href="terms-of-use.html" target="_blank" class="c-form__link">الشروط والأحكام</a>
+        </label>
+        <label class="c-form__checkbox">
+            <input type="checkbox" name="privacy-policy" id="privacyPolicy">
+            <span class="c-form__checkmark"></span>
+        لقد قرأت ووافقت على <a href="privacy-policy.html" target="_blank" class="c-form__link">سياسة الخصوصية</a>
+        </label>
+    </div>
+    <p class="c-form__error" id="registerError"></p>
+    <button type="submit" class="c-btn c-btn--primary">تسجيل جديد</button>
+    <p class="c-form__help c-form__help--border-bottom">
+        لديك حساب بالفعل؟ <a href="login.html" class="c-form__link">سجل الدخول</a>
+    </p>
+    <p class="c-form__help">أو سجل الدخول باستخدام</p>
+    <div class="c-form__socials">
+        <a href="#" class="c-btn c-btn--icon--google" aria-label="Google">
+            <i class="fa-brands fa-google"></i>
+        </a>
+        <a href="#" class="c-btn c-btn--icon--facebook" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="#" class="c-btn c-btn--icon--twitter" aria-label="Twitter">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+    </div>
+
+    <div class="modal" tabindex="-1" id="registerSuccessModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">تسجيل جديد</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="c-form__success">لقد قمت بالتسجيل بنجاح!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="c-btn c-btn--secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <a href="login.html" class="c-btn c-btn--primary">تسجيل الدخول</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 {{/components-container}}

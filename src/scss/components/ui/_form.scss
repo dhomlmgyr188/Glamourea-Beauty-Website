@@ -1,0 +1,40 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../utilities/mixin-card" as mixin-card;
+@use "../../config/colors" as colors;
+ 
+.c-form{
+    @include mixin-card.e-form;
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(base);
+    width: 100%;
+    height: auto;
+    &__error{
+        display:none;
+        color: colors.$danger-color;
+    }
+    &__success{
+        color: colors.$success-color;
+    }
+    &__title{
+        margin-bottom: 0;
+    }
+    &:last-child{
+        margin-bottom: 0;
+        p{
+            margin-bottom: 0;
+        }
+    }
+}
+.c-form__help{
+    &--border-bottom{
+        border-bottom: 1px solid colors.$gray-color;
+        padding-bottom: spacing.spacing(base);
+    }
+}
+.c-form__socials{
+    display: flex;
+    gap: spacing.spacing(base);
+    justify-content: center;
+    flex-wrap: wrap;
+}

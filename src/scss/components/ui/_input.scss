@@ -1,0 +1,19 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+
+.c-input{
+    padding: spacing.spacing(xs) spacing.spacing(sm);
+    border: 1px solid colors.$gray-color;
+    border-radius: spacing.spacing(xs);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    &:focus {
+        outline: none;
+        border-color: colors.$primary-color;
+        box-shadow: 0 0 5px rgba(colors.$primary-color, 0.5);
+    }
+    &:-webkit-autofill{
+        box-shadow: 0 0 0px 1000px colors.$white-color inset;
+        -webkit-text-fill-color: colors.$dark-color;
+    }
+}

@@ -1,11 +1,37 @@
 {{#> components-container title="login"}}
 
 <form action="#" method="post" class="c-form c-form--login">
-    <label for="email" class="c-label">الايميل </label>
-    <input type="email" name="email" id="email" placeholder="ضع ايميل">
-    <label for="password" class="c-label">الباسود </label>
-    <input type="password" name="password" id="password" placeholder="ضع كلمة السر">
-    <button type="submit">تسجيل الدخول</button>
+    <h2 class="c-form__title">تسجيل الدخول</h2>
+    <div class="c-form__group">
+        <label for="email" class="c-label"> البريد الإلكتروني</label>
+        <input type="email" class="c-input" name="email" id="email" placeholder="ضع بريدك الإلكتروني" required>
+        <p class="c-form__error" id="loginEmailError"></p>
+    </div>
+    <div class="c-form__group">
+        <div class="clearfix">
+            <label for="password" class="c-label float-end"> كلمة السر</label>
+            <a href="reset-password.html" class="float-start c-form__link">نسيت كلمة السر؟</a>
+        </div>
+        <input type="password" class="c-input" name="password" id="password" placeholder="ضع كلمة السر" required>
+        <p class="c-form__error" id="loginPasswordError"></p>
+    </div>
+    <button type="submit" class="c-btn c-btn--primary">تسجيل الدخول</button>
+    <p class="c-form__help c-form__help--border-bottom">
+        ليس لديك حساب؟ <a href="register.html" class="c-form__link">سجل الأن</a>
+    </p>
+    <p class="c-form__help">أو سجل الدخول باستخدام</p>
+       <div class="c-form__socials">
+            <a href="#" class="c-btn c-btn--icon--google" aria-label="Google">
+                <i class="fa-brands fa-google"></i>
+            </a>
+            <a href="#" class="c-btn c-btn--icon--facebook" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="c-btn c-btn--icon--twitter" aria-label="Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+       </div>
 </form>
+
 
 {{/components-container}}
