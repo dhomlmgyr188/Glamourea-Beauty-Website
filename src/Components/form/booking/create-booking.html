@@ -1,4 +1,75 @@
 {{#> components-container title="create-booking"}}
-<form action="#" method="post" class="c-form c-form--create-booking"></form>
+<form action="#" method="post" class="c-form c-form--create-booking">
+
+    
+    <!-- <button type="submit" class="c-btn c-btn--primary">تسجيل الدخول</button> -->
+   
+    <div class="c-form__progress">
+        <div class="c-form__progress-bar"></div>
+    </div>
+
+    <p class="c-form__steps-count">
+        <span class="current-step">1</span> / <span>4</span>
+    </p>
+
+    <div class="c-form__step c-form__step--active">
+        <h2 class="c-form__title">البيانات الشخصية</h2>
+        <div class=" c-form__groups">
+            <div class="c-form__group">
+                <label for="name" class="c-label">الاسم</label>
+                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
+            </div>
+            <div class="c-form__group">
+                <label for="number" class="c-label">رقم الجوال</label>
+                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
+            </div>
+        </div>
+    </div>
+    <div class="c-form__step">
+        <h2 class="c-form__title">تفاصيل الحجز </h2>
+        <div class=" c-form__groups">
+            <div class="c-form__group">
+                <label for="name" class="c-label">الاسم</label>
+                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
+            </div>
+            <div class="c-form__group">
+                <label for="number" class="c-label">رقم الجوال</label>
+                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
+            </div>
+        </div>
+    </div>
+    <div class="c-form__step">
+        <h2 class="c-form__title"> الدفع </h2>
+        <div class=" c-form__groups">
+            <div class="c-form__group">
+                <label for="name" class="c-label">الاسم</label>
+                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
+            </div>
+            <div class="c-form__group">
+                <label for="number" class="c-label">رقم الجوال</label>
+                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
+            </div>
+        </div>
+    </div>
+    <div class="c-form__step">
+        <h2 class="c-form__title"> معلومات الشعر</h2>
+        <div class=" c-form__groups">
+            <div class="c-form__group">
+                <label for="name" class="c-label">الاسم</label>
+                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
+            </div>
+            <div class="c-form__group">
+                <label for="number" class="c-label">رقم الجوال</label>
+                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
+            </div>
+        </div>
+    </div>
+
+    <div class="c-form__actions">
+        <button type="button" class="prev-btn c-btn c-btn--gohst">السابق</button>
+        <button type="button" class="next-btn c-btn c-btn--secondary">التالي</button>
+        <button type="submit" class="submit-btn c-btn c-btn--primary">تأكيد الحجز</button>
+    </div>
+</form>
 
 {{/components-container}}

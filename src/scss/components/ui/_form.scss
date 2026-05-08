@@ -25,6 +25,55 @@
             margin-bottom: 0;
         }
     }
+    &__step {
+        display: none;
+
+        &--active {
+            display: block;
+        }
+    }
+
+    &__progress {
+        width: 100%;
+        height: 8px;
+        background: #eee;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+
+    &__progress-bar {
+        width: 25%;
+        height: 100%;
+        background: #d4a373;
+        transition: .3s;
+    }
+
+    &__steps-count {
+        text-align: center;
+        margin-bottom: 32px;
+        font-weight: 600;
+    }
+
+    &__header {
+        margin-bottom: 24px;
+    }
+
+    &__description {
+        color: #777;
+        margin-top: 8px;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .submit-btn {
+        display: none;
+    }
 }
 .c-form__help{
     &--border-bottom{

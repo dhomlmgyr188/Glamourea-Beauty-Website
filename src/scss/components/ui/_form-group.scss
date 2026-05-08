@@ -6,3 +6,8 @@
     gap: spacing.spacing(sm);
     
 }
+.c-form__groups{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
