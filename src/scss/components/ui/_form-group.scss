@@ -1,13 +1,18 @@
 @use "../../utilities/spacing" as spacing;
 
 .c-form__group{
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: spacing.spacing(sm);
-    
+    width: 100%;
 }
+
 .c-form__groups{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.c-form__group--password{
+    position: relative;
 }

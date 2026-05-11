@@ -3,18 +3,17 @@
 <form action="#" method="post" class="c-form c-form--login">
     <h2 class="c-form__title">تسجيل الدخول</h2>
     <div class="c-form__group">
+        <input type="email" class="c-input" name="email" id="email" placeholder="  " required>
         <label for="email" class="c-label"> البريد الإلكتروني</label>
-        <input type="email" class="c-input" name="email" id="email" placeholder="ضع بريدك الإلكتروني" required>
-        <p class="c-form__error" id="loginEmailError"></p>
     </div>
-    <div class="c-form__group">
-        <div class="clearfix">
-            <label for="password" class="c-label float-end"> كلمة السر</label>
-            <a href="reset-password.html" class="float-start c-form__link">نسيت كلمة السر؟</a>
-        </div>
-        <input type="password" class="c-input" name="password" id="password" placeholder="ضع كلمة السر" required>
-        <p class="c-form__error" id="loginPasswordError"></p>
+    <p class="c-form__error" id="loginEmailError">  </p>
+    <div class="c-form__group c-form__group--password">
+        <input type="password" class="c-input c-input--password" name="password" id="password" placeholder="  " required>
+        <label for="password" class="c-label"> كلمة السر</label>
+        <button type="button" class="c-btn__toggle-password" aria-label="إظهار كلمة السر"><i class="fa-regular fa-eye"></i></button>
     </div>
+    <p class="c-form__error" id="loginPasswordError">  </p>
+    <a href="reset-password.html" class="c-form__link">نسيت كلمة السر؟</a>
     <button type="submit" class="c-btn c-btn--primary">تسجيل الدخول</button>
     <p class="c-form__help c-form__help--border-bottom">
         ليس لديك حساب؟ <a href="register.html" class="c-form__link">سجل الأن</a>

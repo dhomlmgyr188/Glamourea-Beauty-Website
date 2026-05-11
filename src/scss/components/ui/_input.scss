@@ -1,9 +1,10 @@
 @use "../../utilities/spacing" as spacing;
 @use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
 
 .c-input{
     width: 100%;
-    padding: spacing.spacing(xs) spacing.spacing(sm);
+    padding: spacing.spacing(base) spacing.spacing(base) spacing.spacing(xs);
     border: 1px solid colors.$gray-color;
     border-radius: spacing.spacing(xs);
     font-size: 16px;
@@ -11,7 +12,6 @@
     &:focus {
         outline: none;
         border-color: colors.$primary-color;
-        box-shadow: 0 0 5px rgba(colors.$primary-color, 0.5);
     }
     &:-webkit-autofill{
         box-shadow: 0 0 0px 1000px colors.$white-color inset;

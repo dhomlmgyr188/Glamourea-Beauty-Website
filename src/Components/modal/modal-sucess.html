@@ -1,0 +1,17 @@
+{{#> components-container title='Modal'}}
+<button id="openModal" class="c-btn">فتح المودال</button>
+<div class="c-modal" id="modal">
+    <div class="c-modal__overlay"></div>
+    <div class="c-modal__content">
+        <div class="c-modal__header">
+            <h2 class="c-modal__title">تسجيل جديد</h2>
+            <button type="button" class="c-modal__btn c-modal__btn--close js-close-modal"><i class="fa-regular fa-circle-xmark"></i></button>
+        </div>
+        <p class="c-modal__desc c-modal__desc--success">لقد قمت بالتسجيل بنجاح!</p>
+        <div class="c-modal__actions">
+            <button type="button" href="index.html" class="c-btn c-btn--secondary js-close-modal">إغلاق </button>
+            <a href="login.html" class="c-btn c-btn--primary ">تسجيل الدخول</i></a>
+        </div>
+    </div>
+</div>
+{{/components-container}}

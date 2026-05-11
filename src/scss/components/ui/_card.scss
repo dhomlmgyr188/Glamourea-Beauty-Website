@@ -1,10 +1,10 @@
-@use "../../utilities/mixin-card" as mixin-card;
+@use "../../utilities/mixin" as mixin;
 @use "../../utilities/spacing" as spacing;
 @use "../../config/colors" as colors;
 @use "../../base/fonts" as fonts;
 
 .c-card {
-    @include mixin-card.e-card;
+    @include mixin.e-card;
     width: 400px;
 
     &__images {

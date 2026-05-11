@@ -1,0 +1,73 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
+@use "../../utilities/mixin" as mixin;
+
+.c-modal{
+    @include mixin.e-modal;
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    &__title {margin-bottom: 0;}
+    &__desc {margin-bottom: 0; &--success{color: colors.$success-color;}}
+    &__btn{
+        outline: none;
+        border: none;
+        background-color: transparent;
+        text-align: center;
+        font-size: fonts.fonts(lg);
+        i{
+            margin-left: 0;
+        }
+        &--close{
+            color: colors.$danger-color;
+            border-radius: 50%;
+        }
+    }
+}
+.c-modal.active{
+    display: flex;
+}
+.c-modal__overlay{
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,.5);
+}
+.c-modal__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+.c-modal__content{
+    position: relative;
+    background-color: colors.$white-color;
+    border-radius: spacing.spacing(sm);
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+    padding: spacing.spacing(base);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: spacing.spacing(base);
+
+    > *:not(:last-child) {
+        width: 100%;
+        padding-bottom: spacing.spacing(base);
+        border-bottom: 1px solid colors.$gray-color;
+    }
+}
+.c-modal__close{
+    position: absolute;
+    top: spacing.spacing(sm);
+    right: spacing.spacing(sm);
+}
+.c-modal__actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacing.spacing(base);
+}
