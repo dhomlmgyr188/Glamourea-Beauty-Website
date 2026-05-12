@@ -9,10 +9,15 @@
 }
 
 .c-form__groups{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: spacing.spacing(base);
 }
+// @media (max-width: 768px) {
+//     .c-form__groups {
+//         grid-template-columns: 1fr;
+//     }
+// }
 .c-form__group--password{
     position: relative;
 }

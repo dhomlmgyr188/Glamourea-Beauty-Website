@@ -149,7 +149,7 @@ $footer-height: 80px;
             transition: all 0.3s ease;
 
             &:hover {
-                border-bottom: 2px solid colors.$primary-color;
+                border-bottom: 2px solid colors.$border-btm-color;
             }
         }
     }

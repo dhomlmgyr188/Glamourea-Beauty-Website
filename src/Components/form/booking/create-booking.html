@@ -1,68 +1,127 @@
 {{#> components-container title="create-booking"}}
 <form action="#" method="post" class="c-form c-form--create-booking">
-    
-    <div class="c-form__progress">
-        <div class="c-form__progress-bar"></div>
-    </div>
-    <p class="c-form__steps-count"><span class="current-step">1</span> / <span>4</span></p>
-    <div class="c-form__step c-form__step--active">
-        <h2 class="c-form__title">البيانات الشخصية</h2>
-        <div class=" c-form__groups">
-            <div class="c-form__group">
-                <label for="name" class="c-label">الاسم</label>
-                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
-            </div>
-            <div class="c-form__group">
-                <label for="number" class="c-label">رقم الجوال</label>
-                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
-            </div>
-        </div>
-    </div>
-    <div class="c-form__step">
-        <h2 class="c-form__title">تفاصيل الحجز </h2>
-        <div class=" c-form__groups">
-            <div class="c-form__group">
-                <label for="name" class="c-label">الاسم</label>
-                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
-            </div>
-            <div class="c-form__group">
-                <label for="number" class="c-label">رقم الجوال</label>
-                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
-            </div>
-        </div>
-    </div>
-    <div class="c-form__step">
-        <h2 class="c-form__title"> الدفع </h2>
-        <div class=" c-form__groups">
-            <div class="c-form__group">
-                <label for="name" class="c-label">الاسم</label>
-                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
-            </div>
-            <div class="c-form__group">
-                <label for="number" class="c-label">رقم الجوال</label>
-                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
-            </div>
-        </div>
-    </div>
-    <div class="c-form__step">
-        <h2 class="c-form__title"> معلومات الشعر</h2>
-        <div class=" c-form__groups">
-            <div class="c-form__group">
-                <label for="name" class="c-label">الاسم</label>
-                <input type="text" class="c-input" id="name" name="name" placeholder="ضع اسمك">
-            </div>
-            <div class="c-form__group">
-                <label for="number" class="c-label">رقم الجوال</label>
-                <input type="text" class="c-input" id="number" name="number" placeholder="ضع رقم جوالك">
-            </div>
-        </div>
+  <div class="c-progress-steps">
+    <!-- BAR -->
+    <div class="c-progress">
+      <div class="c-progress__bar"></div>
     </div>
 
-    <div class="c-form__actions">
-        <button type="button" class="prev-btn c-btn c-btn--gohst">السابق</button>
-        <button type="button" class="next-btn c-btn c-btn--primary">التالي</button>
-        <button type="submit" class="submit-btn c-btn c-btn--success">تأكيد الحجز</button>
+    <!-- STEPS -->
+    <div class="c-progress-steps__items">
+      <div class="c-progress-steps__item is-active">
+        <div class="c-progress-steps__number">20%</div>
+
+        <span class="c-progress-steps__label"> البيانات </span>
+      </div>
+
+      <div class="c-progress-steps__item">
+        <div class="c-progress-steps__number">40%</div>
+
+        <span class="c-progress-steps__label"> الحجز </span>
+      </div>
+
+      <div class="c-progress-steps__item">
+        <div class="c-progress-steps__number">60%</div>
+
+        <span class="c-progress-steps__label"> الشعر </span>
+      </div>
+
+      <div class="c-progress-steps__item">
+        <div class="c-progress-steps__number">80%</div>
+
+        <span class="c-progress-steps__label"> الدفع </span>
+      </div>
+
+      <div class="c-progress-steps__item">
+        <div class="c-progress-steps__number">100%</div>
+
+        <span class="c-progress-steps__label"> التأكيد </span>
+      </div>
     </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="c-step c-step--active">
+    <h2 class="c-step__title">البيانات الشخصية</h2>
+
+    <div class="c-form__groups">
+      <div class="c-form__group c-form--create-booking--group">
+        <input
+          type="text"
+          class="c-input"
+          id="name"
+          name="name"
+          placeholder=""
+        />
+        <label for="name" class="c-label">الاسم الكامل</label>
+      </div>
+      <div class="c-form__group c-form--create-booking--group">
+        <input
+          type="text"
+          class="c-input"
+          id="phoneNumber"
+          name="phone-number"
+          placeholder=""
+        />
+        <label for="phoneNumber" class="c-label">رقم الجوال</label>
+      </div>
+      <div class="c-form__group c-form--create-booking--group">
+        <input
+          type="email"
+          class="c-input"
+          id="email"
+          name="email"
+          placeholder=""
+        />
+        <label for="email" class="c-label">البريد الإلكتروني (اختياري) </label>
+      </div>
+      <div class="c-form__group c-form--create-booking--group">
+        <div class="c-select">
+          <button type="button" class="c-select__trigger">
+            <span class="c-select__title"> المدينة </span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="c-select__menu">
+            <li class="c-select__option" data-value="med">المدينة المنورة</li>
+            <li class="c-select__option" data-value="jed">جدة</li>
+            <li class="c-select__option" data-value="mak">مكة</li>
+            <li class="c-select__option" data-value="dam">الدمام</li>
+          </ul>
+          <input type="hidden" name="service" class="c-select__input" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="c-step">
+    <h2 class="c-step__title">تفاصيل الحجز</h2>
+
+    <div class="c-form__group c-form--create-booking--group">
+      <label class="c-label"> التاريخ </label>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="c-step">
+    <h2 class="c-step__title">معلومات الشعر</h2>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="c-step">
+    <h2 class="c-step__title">الدفع</h2>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="c-step">
+    <h2 class="c-step__title">تأكيد الحجز</h2>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="c-form__actions c-form--create-booking--actions">
+    <button type="button" class="c-btn prev-btn">السابق</button>
+
+    <button type="button" class="c-btn c-btn--primary next-btn">التالي</button>
+  </div>
 </form>
-
 {{/components-container}}

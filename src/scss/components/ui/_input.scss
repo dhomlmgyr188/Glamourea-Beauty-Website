@@ -4,10 +4,9 @@
 
 .c-input{
     width: 100%;
-    padding: spacing.spacing(base) spacing.spacing(base) spacing.spacing(xs);
-    border: 1px solid colors.$gray-color;
+    padding: spacing.spacing(sm) spacing.spacing(base) ;
+    border: 1px solid colors.$border-color;
     border-radius: spacing.spacing(xs);
-    font-size: 16px;
     transition: all 0.3s ease;
     &:focus {
         outline: none;

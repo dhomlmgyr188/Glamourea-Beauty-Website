@@ -1,42 +1,101 @@
 export function initFormSteps() {
-  const steps = document.querySelectorAll(".c-form__step");
-  const nextBtn = document.querySelector(".next-btn");
-  const prevBtn = document.querySelector(".prev-btn");
-  const submitBtn = document.querySelector(".submit-btn");
-  const currentStepText = document.querySelector(".current-step");
-  const progressBar = document.querySelector(".c-form__progress-bar");
+ const steps =
+    document.querySelectorAll(".c-step");
 
-  if (!steps.length || !nextBtn || !prevBtn || !submitBtn) return;
+const progressItems =
+    document.querySelectorAll(
+        ".c-progress-steps__item"
+    );
 
-  let currentStep = 0;
+const progressBar =
+    document.querySelector(".c-progress__bar");
 
-  updateForm();
+const nextBtn =
+    document.querySelector(".next-btn");
 
-  nextBtn.addEventListener("click", () => {
+const prevBtn =
+    document.querySelector(".prev-btn");
+
+let currentStep = 0;
+
+updateUI();
+
+nextBtn.addEventListener("click", () => {
+
     if (currentStep < steps.length - 1) {
-      currentStep++;
-      updateForm();
-    }
-  });
 
-  prevBtn.addEventListener("click", () => {
+        currentStep++;
+
+        updateUI();
+
+    }
+
+});
+
+prevBtn.addEventListener("click", () => {
+
     if (currentStep > 0) {
-      currentStep--;
-      updateForm();
+
+        currentStep--;
+
+        updateUI();
+
     }
-  });
 
-  function updateForm() {
-    steps.forEach(step => step.classList.remove("c-form__step--active"));
-    steps[currentStep].classList.add("c-form__step--active");
+});
 
-    currentStepText.textContent = currentStep + 1;
+function updateUI() {
 
-    const progressWidth = ((currentStep + 1) / steps.length) * 100;
-    progressBar.style.width = `${progressWidth}%`;
+    // STEP CONTENT
+    steps.forEach((step) => {
+        step.classList.remove("c-step--active");
+    });
 
-    prevBtn.style.display = currentStep === 0 ? "none" : "block";
-    nextBtn.style.display = currentStep === steps.length - 1 ? "none" : "block";
-    submitBtn.style.display = currentStep === steps.length - 1 ? "block" : "none";
-  }
+    steps[currentStep]
+        .classList.add("c-step--active");
+
+    // PROGRESS ITEMS
+    progressItems.forEach((item, index) => {
+
+        item.classList.remove(
+            "is-active",
+            "is-completed"
+        );
+
+        if (index < currentStep) {
+
+            item.classList.add(
+                "is-completed"
+            );
+
+        }
+
+        else if (index === currentStep) {
+
+            item.classList.add(
+                "is-active"
+            );
+
+        }
+
+    });
+
+    // BAR WIDTH
+    const progressWidth =
+        ((currentStep + 1) / steps.length) * 100;
+
+    progressBar.style.width =
+        `${progressWidth}%`;
+
+    // BUTTONS
+    prevBtn.style.display =
+        currentStep === 0
+            ? "none"
+            : "block";
+
+    nextBtn.textContent =
+        currentStep === steps.length - 1
+            ? "إنهاء"
+            : "التالي";
+}
 }

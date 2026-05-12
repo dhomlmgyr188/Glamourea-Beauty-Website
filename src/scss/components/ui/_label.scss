@@ -2,23 +2,25 @@
 @use "../../config/colors" as colors;
 @use "../../base/fonts" as fonts;
 
-.c-label{
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-background-color: colors.$white-color;
-padding: 0 spacing.spacing(sm);
-border-radius: spacing.spacing(xs);
-cursor: text;
-right: 1rem;
-transition: all 0.3s ease;
-}.c-input:focus + .c-label{
-    color: colors.$primary-color;
-    top: 0;
-    font-size: fonts.fonts(sm);
+.c-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: colors.$white-color;
+    padding: 0 spacing.spacing(sm);
+    cursor: text;
+    right: 1rem;
+    transition: all 0.3s ease;
 }
-.c-input:not(:placeholder-shown) + .c-label{
+
+.c-input:focus+.c-label {
     color: colors.$primary-color;
     top: 0;
-    font-size: fonts.fonts(sm);
+    font-size: fonts.fonts(xsm);
+}
+
+.c-input:not(:placeholder-shown)+.c-label {
+    color: colors.$primary-color;
+    top: 0;
+    font-size: fonts.fonts(xsm);
 }

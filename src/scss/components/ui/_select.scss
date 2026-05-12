@@ -1,0 +1,61 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+
+.c-select {
+    position: relative;
+    width: 100%;
+
+    &__trigger {
+        span{margin-bottom: 0;}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-align: right;
+        padding: spacing.spacing(sm) spacing.spacing(base);
+        background-color: colors.$white-color;
+        border: 1px solid colors.$border-color;
+        border-radius: spacing.spacing(xs);
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: colors.$primary-color;
+        }
+    }
+
+    &__menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+        background: colors.$white-color;
+        border: 1px solid colors.$border-color;
+        border-radius: spacing.spacing(xs);
+        padding: 0;
+        display: none;
+        z-index: 10;
+    }
+
+    &__menu.is-open {
+        display: block;
+
+        &:focus {
+            border-color: colors.$primary-color;
+        }
+    }
+
+    &__option {
+        padding: spacing.spacing(sm) spacing.spacing(base);
+        cursor: pointer;
+        border-bottom: 1px solid colors.$border-btm-color;
+        &:last-child{
+            border-bottom: none;
+        }
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: colors.$light-color;
+        }
+    }
+}

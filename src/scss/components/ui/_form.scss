@@ -1,7 +1,6 @@
 @use "../../utilities/spacing" as spacing;
 @use "../../utilities/mixin" as mixin;
 @use "../../config/colors" as colors;
-$progress-bg-height: spacing.spacing(sm);
 
 .c-form {
     @include mixin.e-form;
@@ -31,7 +30,7 @@ $progress-bg-height: spacing.spacing(sm);
 
 .c-form__help {
     &--border-bottom {
-        border-bottom: 1px solid colors.$gray-color;
+        border-bottom: 1px solid colors.$border-btm-color;
         padding-bottom: spacing.spacing(base);
     }
 }
@@ -41,53 +40,4 @@ $progress-bg-height: spacing.spacing(sm);
     gap: spacing.spacing(base);
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.c-form__progress {
-    width: 100%;
-    height: $progress-bg-height;
-    background: colors.$progress-bg-color;
-    border-radius: spacing.spacing(base);
-    overflow: hidden;
-}
-
-.c-form__progress-bar {
-    width: 25%;
-    height: 100%;
-    background-color: colors.$primary-color;
-    transition: all 0.3s ease;
-}
-
-.c-form__step {
-    display: none;
-
-    &--active {
-        display: block;
-    }
-}
-
-.c-form__steps-count {
-    text-align: center;
-    margin-bottom: 32px;
-    font-weight: 600;
-}
-
-.c-form__header {
-    margin-bottom: 24px;
-}
-
-.c-form__description {
-    color: #777;
-    margin-top: 8px;
-}
-
-.c-form__actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 32px;
-}
-
-.submit-btn {
-    display: none;
 }

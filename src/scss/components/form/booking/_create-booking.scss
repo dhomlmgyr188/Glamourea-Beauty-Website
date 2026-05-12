@@ -1,3 +1,112 @@
-.c-form--create-booking{
-    max-width: 550px;
+@use "../../../utilities/spacing" as spacing;
+@use "../../../config/colors" as colors;
+@use "../../../base/fonts" as fonts;
+$progress-bg-height: spacing.spacing(sm);
+
+.c-form--create-booking {
+    max-width: 800px;
+}
+
+.c-progress {
+    width: 100%;
+    height: $progress-bg-height;
+    background: colors.$progress-bg-color;
+    border-radius: 999px;
+    overflow: hidden;
+
+    &__bar {
+        width: 20%;
+        height: 100%;
+        background: colors.$primary-color;
+        transition: all 0.3s ease;
+    }
+}
+
+.c-progress-steps {
+
+    margin-bottom: spacing.spacing(lg);
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        gap: spacing.spacing(sm);
+
+        margin-top: spacing.spacing(lg);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: spacing.spacing(sm);
+        flex: 1;
+
+        span {
+            margin-bottom: 0;
+        }
+    }
+
+    &__number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: fonts.fonts(sm);
+        font-weight: bold;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: colors.$progress-bg-color;
+        transition: all 0.3s ease;
+    }
+
+    &__label {
+        font-size: fonts.fonts(sm);
+    }
+
+    .is-active {
+
+        .c-progress-steps__number {
+            background: colors.$primary-color;
+            color: colors.$white-color;
+        }
+
+        .c-progress-steps__label {
+            color: colors.$primary-color;
+            font-weight: bold;
+
+        }
+    }
+
+    .is-completed {
+
+        .c-progress-steps__number {
+            background-color: colors.$success-color;
+            color: colors.$white-color;
+        }
+
+        .c-progress-steps__label {
+            color: colors.$success-color;
+        }
+    }
+}
+
+.c-step {
+    display: none;
+
+    &--active {
+        display: block;
+    }
+
+    &__title {
+        margin-bottom: spacing.spacing(lg);
+    }
+}
+
+.c-form--create-booking {
+
+    &--actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: spacing.spacing(lg);
+    }
 }
