@@ -21,7 +21,33 @@ $progress-bg-height: spacing.spacing(sm);
         transition: all 0.3s ease;
     }
 }
+.c-time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
+.c-time-slot {
+    padding: 12px 18px;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    background: white;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.c-time-slot:hover {
+    border-color: #111;
+}
+
+.c-time-slot.is-active {
+    background: black;
+    color: white;
+}
 .c-progress-steps {
 
     margin-bottom: spacing.spacing(lg);

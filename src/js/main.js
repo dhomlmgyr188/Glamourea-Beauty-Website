@@ -10,6 +10,7 @@ import { initModal } from "./modal.js";
 import { initTogglePassword } from "./toggle-password.js";
 import { initNavbar } from "./navbar.js";
 import { initSelect } from "./select.js";
+import { initBooking } from "./booking.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initFormSteps();
@@ -17,4 +18,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initTogglePassword();
   initNavbar();
   initSelect();
+  initBooking();
 });
