@@ -1,101 +1,102 @@
 export function initFormSteps() {
- const steps =
+  const steps =
     document.querySelectorAll(".c-step");
+    if (!steps.length) return;
 
-const progressItems =
+  const progressItems =
     document.querySelectorAll(
-        ".c-progress-steps__item"
+      ".c-progress-steps__item"
     );
 
-const progressBar =
+  const progressBar =
     document.querySelector(".c-progress__bar");
 
-const nextBtn =
+  const nextBtn =
     document.querySelector(".next-btn");
 
-const prevBtn =
+  const prevBtn =
     document.querySelector(".prev-btn");
 
-let currentStep = 0;
+  let currentStep = 0;
 
-updateUI();
+  updateUI();
 
-nextBtn.addEventListener("click", () => {
+  nextBtn.addEventListener("click", () => {
 
     if (currentStep < steps.length - 1) {
 
-        currentStep++;
+      currentStep++;
 
-        updateUI();
+      updateUI();
 
     }
 
-});
+  });
 
-prevBtn.addEventListener("click", () => {
+  prevBtn.addEventListener("click", () => {
 
     if (currentStep > 0) {
 
-        currentStep--;
+      currentStep--;
 
-        updateUI();
+      updateUI();
 
     }
 
-});
+  });
 
-function updateUI() {
+  function updateUI() {
 
     // STEP CONTENT
     steps.forEach((step) => {
-        step.classList.remove("c-step--active");
+      step.classList.remove("c-step--active");
     });
 
     steps[currentStep]
-        .classList.add("c-step--active");
+      .classList.add("c-step--active");
 
     // PROGRESS ITEMS
     progressItems.forEach((item, index) => {
 
-        item.classList.remove(
-            "is-active",
-            "is-completed"
+      item.classList.remove(
+        "is-active",
+        "is-completed"
+      );
+
+      if (index < currentStep) {
+
+        item.classList.add(
+          "is-completed"
         );
 
-        if (index < currentStep) {
+      }
 
-            item.classList.add(
-                "is-completed"
-            );
+      else if (index === currentStep) {
 
-        }
+        item.classList.add(
+          "is-active"
+        );
 
-        else if (index === currentStep) {
-
-            item.classList.add(
-                "is-active"
-            );
-
-        }
+      }
 
     });
 
     // BAR WIDTH
     const progressWidth =
-        ((currentStep + 1) / steps.length) * 100;
+      ((currentStep + 1) / steps.length) * 100;
 
     progressBar.style.width =
-        `${progressWidth}%`;
+      `${progressWidth}%`;
 
     // BUTTONS
     prevBtn.style.display =
-        currentStep === 0
-            ? "none"
-            : "block";
+      currentStep === 0
+        ? "none"
+        : "block";
 
     nextBtn.textContent =
-        currentStep === steps.length - 1
-            ? "إنهاء"
-            : "التالي";
-}
+      currentStep === steps.length - 1
+        ? "إنهاء"
+        : "التالي";
+  }
 }

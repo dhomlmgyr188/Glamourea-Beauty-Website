@@ -1,6 +1,6 @@
 @use "./fonts" as fonts;
-@use "../config/variables" as vars;
 @use "../config/colors" as colors;
+@use "../utilities/variables" as vars;
 @use "../utilities/spacing" as spacing;
 $navbar-height: 80px;
 html{
