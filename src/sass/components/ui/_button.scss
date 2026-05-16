@@ -85,22 +85,3 @@
 .c-btn--icon--google{ background-color:colors.$google-color ;}
 .c-btn--icon--facebook{ background-color: colors.$facebook-color;}
 .c-btn--icon--twitter{ background-color: colors.$twitter-color;}
-
-.c-btn__toggle-password{
-    position: absolute;
-    left: 12px;
-    right: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: colors.$dark-color;
-    transition: all 0.3s ease;
-}
-.c-input:focus + .c-label + .c-btn__toggle-password{
-    color: colors.$primary-color;
-}
-.c-input:not(:placeholder-shown) + .c-label + .c-btn__toggle-password {
-    color: colors.$primary-color;
-}

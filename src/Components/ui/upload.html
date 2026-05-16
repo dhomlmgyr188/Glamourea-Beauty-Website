@@ -1,0 +1,19 @@
+{{#> components-container title="upload"}}
+
+<div class="c-upload">
+    <span class="c-upload__title">يرجى ارفاق الصورة بالالسفل</span>
+  <input type="file" id="uploadImage" name="uploadImage" class="c-upload__input" accept="image/*">
+
+  <label for="uploadImage" class="c-upload__content c-upload__content--md">
+    <div class="c-upload__placeholder">
+      <i class="fa-solid fa-cloud-arrow-up c-upload__icon"></i>
+      <span class="c-upload__placeholder-title"> رفع صورة </span>
+      <span class="c-upload__hint"> JPG, PNG - الحد الأقصى 5MB </span>
+    </div>
+    <img src="" alt="preview" class="c-upload__image" />
+  </label>
+
+  <button type="button" class="c-btn c-btn--danger c-btn--sm c-upload__remove">حذف الصورة</button>
+</div>
+
+{{/components-container}}

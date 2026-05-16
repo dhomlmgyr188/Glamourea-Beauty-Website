@@ -1,8 +1,11 @@
 @use "../../utilities/spacing" as spacing;
 @use "../../config/colors" as colors;
 @use "../../base/fonts" as fonts;
+.c-label{
+    
+}
 
-.c-label {
+.c-label--floating {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -13,13 +16,13 @@
     transition: all 0.3s ease;
 }
 
-.c-input:focus+.c-label {
+.c-input:focus+.c-label--floating {
     color: colors.$primary-color;
     top: 0;
     font-size: fonts.fonts(xsm);
 }
 
-.c-input:not(:placeholder-shown)+.c-label {
+.c-input:not(:placeholder-shown)+.c-label--floating {
     color: colors.$primary-color;
     top: 0;
     font-size: fonts.fonts(xsm);

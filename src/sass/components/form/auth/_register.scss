@@ -1,3 +1,8 @@
-.c-form--register{
+@use "../../../utilities/spacing" as spacing;
+
+.c-form--register {
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(base);
 }

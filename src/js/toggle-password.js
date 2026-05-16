@@ -1,20 +1,30 @@
-export function initTogglePassword() {
-document.addEventListener("click", (e) => {
-  const toggleBtn = e.target.closest(".c-btn__toggle-password");
-  if (!toggleBtn) return;
+export function initPasswordToggle() {
+  const buttons = document.querySelectorAll(".c-btn__toggle-password");
 
-  const group = toggleBtn.closest(".c-form__group--password");
-  if (!group) return;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const wrapper = button.closest(".c-inputs--toggle-password");
+      if (!wrapper) return;
 
-  const input = group.querySelector("input");
-  if (!input) return;
+      const input = wrapper.querySelector("input");
+      const icon = button.querySelector("i");
 
-  const isPassword = input.type === "password";
+      if (!input) return;
 
-  input.type = isPassword ? "text" : "password";
+      const isPassword = input.type === "password";
 
-  toggleBtn.innerHTML = isPassword
-    ? '<i class="fa-regular fa-eye-slash"></i>'
-    : '<i class="fa-regular fa-eye"></i>';
-});
+      // toggle type
+      input.type = isPassword ? "text" : "password";
+
+      // toggle icon
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+
+      // aria
+      button.setAttribute(
+        "aria-label",
+        isPassword ? "إخفاء كلمة السر" : "إظهار كلمة السر",
+      );
+    });
+  });
 }

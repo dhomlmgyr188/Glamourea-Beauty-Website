@@ -1,6 +1,6 @@
 {{#> components-container title="create-booking"}}
 <form action="#" method="post" class="c-form c-form--create-booking">
-  <div class="c-progress-steps">
+  <div class="c-progress-wrapper">
     <!-- BAR -->
     <div class="c-progress">
       <div class="c-progress__bar"></div>
@@ -10,159 +10,496 @@
     <div class="c-progress-steps__items">
       <div class="c-progress-steps__item is-active">
         <div class="c-progress-steps__number">20%</div>
-
-        <span class="c-progress-steps__label"> البيانات </span>
+        <span class="c-progress-steps__label">البيانات</span>
       </div>
 
       <div class="c-progress-steps__item">
         <div class="c-progress-steps__number">40%</div>
-
-        <span class="c-progress-steps__label"> الحجز </span>
+        <span class="c-progress-steps__label">الحجز</span>
       </div>
 
       <div class="c-progress-steps__item">
         <div class="c-progress-steps__number">60%</div>
-
-        <span class="c-progress-steps__label"> الشعر </span>
+        <span class="c-progress-steps__label">الشعر</span>
       </div>
 
       <div class="c-progress-steps__item">
         <div class="c-progress-steps__number">80%</div>
-
-        <span class="c-progress-steps__label"> الدفع </span>
+        <span class="c-progress-steps__label">الدفع</span>
       </div>
 
       <div class="c-progress-steps__item">
         <div class="c-progress-steps__number">100%</div>
-
-        <span class="c-progress-steps__label"> التأكيد </span>
+        <span class="c-progress-steps__label">التأكيد</span>
       </div>
     </div>
   </div>
 
-  <!-- STEP 1 -->
-  <div class="c-step c-step--active">
-    <h2 class="c-step__title">البيانات الشخصية</h2>
+  <div class="c-steps">
+    <!-- STEP 1 -->
+    <div class="c-step c-step--active">
+      <h2 class="c-step__title">البيانات الشخصية</h2>
 
-    <div class="c-form__groups">
-      <div class="c-form__group c-form--create-booking--group">
-        <input
-          type="text"
-          class="c-input"
-          id="name"
-          name="name"
-          placeholder=""
-        />
-        <label for="name" class="c-label">الاسم الكامل</label>
-      </div>
-      <div class="c-form__group c-form--create-booking--group">
-        <input
-          type="text"
-          class="c-input"
-          id="phoneNumber"
-          name="phone-number"
-          placeholder=""
-        />
-        <label for="phoneNumber" class="c-label">رقم الجوال</label>
-      </div>
-      <div class="c-form__group c-form--create-booking--group">
-        <input
-          type="email"
-          class="c-input"
-          id="email"
-          name="email"
-          placeholder=""
-        />
-        <label for="email" class="c-label">البريد الإلكتروني (اختياري) </label>
-      </div>
-      <div class="c-form__group c-form--create-booking--group">
-        <div class="c-select">
-          <button type="button" class="c-select__trigger">
-            <span class="c-select__title"> اختيار المدينة </span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <ul class="c-select__menu">
-            <li class="c-select__option" data-value="med">المدينة المنورة</li>
-            <li class="c-select__option" data-value="jed">جدة</li>
-            <li class="c-select__option" data-value="mak">مكة</li>
-            <li class="c-select__option" data-value="dam">الدمام</li>
-          </ul>
-          <input type="hidden" name="service" class="c-select__input" />
+      <div class="c-form__groups">
+        <div class="c-form__group c-form--create-booking--group">
+          <input
+            type="text"
+            class="c-input"
+            id="name"
+            name="name"
+            placeholder=""
+          />
+          <label for="name" class="c-label--floating">الاسم الكامل</label>
+        </div>
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-inputs c-inputs--phone">
+            <div class="c-input__group">
+              <div class="c-input__fields">
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  class="c-input c-input--phone"
+                  placeholder="ادخل رقم الجوال"
+                  required
+                />
+                <div class="c-input__field js-phone-select">
+                  <button
+                    type="button"
+                    class="c-phone__trigger js-phone-trigger"
+                  >
+                    <img
+                      src="https://flagcdn.com/w40/sa.png"
+                      alt="sa"
+                      class="c-flag js-phone-flag"
+                    />
+                    <span class="c-phone__code js-phone-code">+966</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <ul class="c-select__menu js-phone-menu">
+                    <li
+                      class="c-select__option c-select__option--phone js-phone-option"
+                      data-code="+966"
+                    >
+                      <img
+                        src="https://flagcdn.com/w40/sa.png"
+                        alt="sa"
+                        class="js-phone-flag"
+                      />
+                      <span class="c-phone__code">+966</span>
+                    </li>
+                    <li
+                      class="c-select__option c-select__option--phone js-phone-option"
+                      data-code="+971"
+                    >
+                      <img
+                        src="https://flagcdn.com/w40/ae.png"
+                        alt="ae"
+                        class="js-phone-flag"
+                      />
+                      <span class="c-phone__code">+971</span>
+                    </li>
+                    <li
+                      class="c-select__option c-select__option--phone js-phone-option"
+                      data-code="+20"
+                    >
+                      <img
+                        src="https://flagcdn.com/w40/eg.png"
+                        alt="eg"
+                        class="js-phone-flag"
+                      />
+                      <span class="c-phone__code">+20</span>
+                    </li>
+                  </ul>
+                  <input
+                    type="hidden"
+                    name="countryCode"
+                    class="js-phone-input"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c-form__group c-form--create-booking--group">
+          <input
+            type="email"
+            class="c-input"
+            id="email"
+            name="email"
+            placeholder=""
+          />
+          <label for="email" class="c-label--floating"
+            >البريد الإلكتروني (اختياري)
+          </label>
+        </div>
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-selects">
+            <div class="c-select">
+              <button type="button" class="c-select__trigger">
+                <span class="c-select__title"> اختيار المدينة </span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <ul class="c-select__menu">
+                <li class="c-select__option" data-value="medina">
+                  المدينة المنورة
+                </li>
+
+                <li class="c-select__option" data-value="jeddah">جدة</li>
+
+                <li class="c-select__option" data-value="makkah">
+                  مكة المكرمة
+                </li>
+              </ul>
+
+              <input type="hidden" name="city" class="c-select__input" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- STEP 2 -->
-  <div class="c-step">
-    <h2 class="c-step__title">تفاصيل الحجز</h2>
+    <!-- STEP 2 -->
+    <div class="c-step">
+      <h2 class="c-step__title">تفاصيل الحجز</h2>
 
-    <div class="c-form__groups">
-      <div class="c-form__group c-form--create-booking--group">
-        <div class="c-select">
-          <button type="button" class="c-select__trigger">
-            <span class="c-select__title"> اختيار الفرع </span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <ul class="c-select__menu">
-            <li class="c-select__option" data-value="sultanah-branch">
-              صالون البيوتي قلامور - فرع سلطانة
-            </li>
-          </ul>
-          <input type="hidden" name="service" class="c-select__input" />
+      <div class="c-form__groups">
+        <!-- BRANCH -->
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-selects">
+            <div class="c-select">
+              <button type="button" class="c-select__trigger">
+                <span class="c-select__title"> اختيار الفرع </span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <ul class="c-select__menu">
+                <li class="c-select__option" data-value="sultanah-branch">
+                  صالون البيوتي قلامور - فرع سلطانة
+                </li>
+              </ul>
+
+              <input type="hidden" name="branch" class="c-select__input" />
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="c-form__group c-form--create-booking--group">
-        <input type="date" class="c-input" id="date" name="bookingDate" />
-        <label for="date" class="c-label">اختيار تاريخ الحجز </label>
-      </div>
-      <div class="c-form__group c-form--create-booking--group">
-        <input
-          type="time"
-          class="c-input"
-          id="time"
-          name="bookingTime"
-          min="16:00"
-          max="24:00"
-          step="1800"
-        />
-        <label for="time" class="c-label">اختيار وقت الحجز </label>
-      </div>
-      <div class="c-form__group c-form--create-booking--group">
-        <div class="c-select">
-          <button type="button" class="c-select__trigger">
-            <span class="c-select__title"> المدينة </span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <ul class="c-select__menu">
-            <li class="c-select__option" data-value="med">المدينة المنورة</li>
-            <li class="c-select__option" data-value="jed">جدة</li>
-            <li class="c-select__option" data-value="mak">مكة</li>
-            <li class="c-select__option" data-value="dam">الدمام</li>
-          </ul>
-          <input type="hidden" name="service" class="c-select__input" />
+
+        <!-- SPECIALIST -->
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-selects">
+            <div class="c-select">
+              <button type="button" class="c-select__trigger">
+                <span class="c-select__title"> اختيار الأخصائية </span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <ul class="c-select__menu">
+                <li class="c-select__option" data-value="israa">
+                  الأخصائية اسراء
+                </li>
+                <li class="c-select__option" data-value="alaa">
+                  الأخصائية الاء
+                </li>
+                <li class="c-select__option" data-value="najla">
+                  الأخصائية نجلاء
+                </li>
+              </ul>
+
+              <input type="hidden" name="specialist" class="c-select__input" />
+            </div>
+          </div>
+        </div>
+
+        <!-- DATE -->
+        <div class="c-form__group c-form--create-booking--group">
+          <input
+            type="text"
+            class="c-input"
+            id="bookingDate"
+            name="bookingDate"
+            autocomplete="off"
+            placeholder="اختيار تاريخ الحجز"
+          />
+        </div>
+
+        <!-- TIME SLOTS -->
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-time-slots" id="timeSlots"></div>
+
+          <input type="hidden" id="bookingTime" name="bookingTime" />
+
+          <!-- placeholder -->
+          <p class="c-time-slots__placeholder">
+            اختر الأخصائية والتاريخ لعرض الأوقات المتاحة
+          </p>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- STEP 3 -->
-  <div class="c-step">
-    <h2 class="c-step__title">معلومات الشعر</h2>
-  </div>
+    <!-- STEP 3 -->
+    <div class="c-step">
+      <h2 class="c-step__title">تفاصيل الشعر والمعالجة</h2>
+      <div class="c-form__groups--one">
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-selects">
+            <div class="c-select">
+              <button type="button" class="c-select__trigger">
+                <span class="c-select__title"> اختيار نوع المعالجة </span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
 
-  <!-- STEP 4 -->
-  <div class="c-step">
-    <h2 class="c-step__title">الدفع</h2>
-  </div>
+              <ul class="c-select__menu">
+                <li class="c-select__option" data-value="proten">بروتين</li>
+                <li class="c-select__option" data-value="keraten">كيراتين</li>
+                <li class="c-select__option" data-value="down-hair">
+                  علاج تساقط
+                </li>
+              </ul>
 
-  <!-- STEP 5 -->
-  <div class="c-step">
-    <h2 class="c-step__title">تأكيد الحجز</h2>
+              <input
+                type="hidden"
+                name="treatmentType"
+                class="c-select__input"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-form__groups--one">
+            <div class="c-form__group c-form--create-booking--group">
+              <div class="c-radios">
+                <span class="c-radio__title">هل سبق عمل معالجة؟ </span>
+                <div class="c-radio__group">
+                  <label class="c-radio">
+                    <input
+                      type="radio"
+                      name="hairType"
+                      value="yes"
+                      class="c-radio__input"
+                    />
+                    <span class="c-radio__checkmark"></span>
+                    <span class="c-radio__label">نعم </span>
+                  </label>
+                  <label class="c-radio">
+                    <input
+                      type="radio"
+                      name="hairType"
+                      value="no"
+                      class="c-radio__input"
+                    />
+                    <span class="c-radio__checkmark"></span>
+                    <span class="c-radio__label">لا </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c-form__group c-form--create-booking--group js-treatment-details"
+            >
+              <div class="c-textareas">
+                <label for="previousTreatment" class="c-label c-textarea__title"
+                  >ماهو نوع المعالجة السابقة
+                </label>
+                <textarea
+                  name="previousTreatment"
+                  id="previousTreatment"
+                  class="c-textarea"
+                  maxlength="150"
+                ></textarea>
+                <span class="c-textarea__hint">
+                  <span class="c-textarea__count">0</span>
+                  /
+                  <span class="c-textarea__maxlength">150</span>
+                  <span>حرف</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-checkboxes">
+            <span class="c-checkbox__title">اختيار حالة الشعر </span>
+
+            <div class="c-checkbox__group">
+              <label class="c-checkbox">
+                <input
+                  type="checkbox"
+                  name="hairCondition"
+                  value="damaged"
+                  class="c-checkbox__input"
+                />
+
+                <span class="c-checkbox__checkmark"></span>
+
+                <span class="c-checkbox__label"> شعر متضرر </span>
+              </label>
+
+              <label class="c-checkbox">
+                <input
+                  type="checkbox"
+                  name="hairCondition"
+                  value="dyed"
+                  class="c-checkbox__input"
+                />
+
+                <span class="c-checkbox__checkmark"></span>
+
+                <span class="c-checkbox__label"> شعر مصبوغ </span>
+              </label>
+
+              <label class="c-checkbox">
+                <input
+                  type="checkbox"
+                  name="hairCondition"
+                  value="splitEnds"
+                  class="c-checkbox__input"
+                />
+
+                <span class="c-checkbox__checkmark"></span>
+
+                <span class="c-checkbox__label"> تقصف بالأطراف </span>
+              </label>
+              <label class="c-checkbox">
+                <input
+                  type="checkbox"
+                  name="hairCondition"
+                  value="dry"
+                  class="c-checkbox__input"
+                />
+
+                <span class="c-checkbox__checkmark"></span>
+
+                <span class="c-checkbox__label"> شعر جاف</span>
+              </label>
+              <label class="c-checkbox">
+                <input
+                  type="checkbox"
+                  name="hairCondition"
+                  value="falling"
+                  class="c-checkbox__input"
+                />
+
+                <span class="c-checkbox__checkmark"></span>
+
+                <span class="c-checkbox__label"> تساقط شعر </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-selects">
+            <div class="c-select">
+              <button type="button" class="c-select__trigger">
+                <span class="c-select__title"> اختيار طول الشعر </span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <ul class="c-select__menu">
+                <li class="c-select__option" data-value="small-hair">قصير</li>
+                <li class="c-select__option" data-value="medium-hair">متوسط</li>
+                <li class="c-select__option" data-value="big-hair">طويل</li>
+              </ul>
+
+              <input type="hidden" name="hairLength" class="c-select__input" />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-selects">
+            <div class="c-select">
+              <button type="button" class="c-select__trigger">
+                <span class="c-select__title"> اختيار كثافة الشعر </span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <ul class="c-select__menu">
+                <li class="c-select__option" data-value="small-density">
+                  خفيف
+                </li>
+                <li class="c-select__option" data-value="medium-density">
+                  متوسط
+                </li>
+                <li class="c-select__option" data-value="big-density">كثيف</li>
+              </ul>
+
+              <input type="hidden" name="hairDensity" class="c-select__input" />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-upload">
+            <span class="c-upload__title"
+              >إضافة صور للشعر قبل الجلسة (اختياري)</span
+            >
+            <input
+              type="file"
+              id="uploadImage"
+              name="hairImage"
+              class="c-upload__input"
+              accept="image/*"
+            />
+
+            <label
+              for="uploadImage"
+              class="c-upload__content c-upload__content--lg"
+            >
+              <div class="c-upload__placeholder">
+                <i class="fa-solid fa-cloud-arrow-up c-upload__icon"></i>
+                <span class="c-upload__placeholder-title"> رفع صورة </span>
+                <span class="c-upload__hint"> JPG, PNG - الحد الأقصى 5MB </span>
+              </div>
+              <img src="" alt="preview" class="c-upload__image" />
+            </label>
+
+            <button
+              type="button"
+              class="c-btn c-btn--danger c-btn--sm c-upload__remove"
+            >
+              حذف الصورة
+            </button>
+          </div>
+        </div>
+
+        <div class="c-form__group c-form--create-booking--group">
+          <div class="c-textareas">
+            <label for="additionalNotes" class="c-label c-textarea__title">
+              هل توجد حساسية أو معلومات تودين إضافتها؟</label
+            >
+            <textarea
+              name="additionalNotes"
+              id="additionalNotes"
+              class="c-textarea"
+              maxlength="300"
+            ></textarea>
+            <span class="c-textarea__hint">
+              <span class="c-textarea__count">0</span>
+              /
+              <span class="c-textarea__maxlength">300</span>
+              <span>حرف</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="c-step">
+      <h2 class="c-step__title">الدفع</h2>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="c-step">
+      <h2 class="c-step__title">تأكيد الحجز</h2>
+    </div>
   </div>
 
   <!-- ACTIONS -->
-  <div class="c-form__actions c-form--create-booking--actions">
+  <div class="c-actions">
     <button type="button" class="c-btn prev-btn">السابق</button>
 
     <button type="button" class="c-btn c-btn--primary next-btn">التالي</button>

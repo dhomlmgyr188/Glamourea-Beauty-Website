@@ -1,42 +1,73 @@
-@use "../../config/colors" as colors;
 @use "../../utilities/spacing" as spacing;
-$width: 20px;
-$height: 20px;
+@use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
+$checkmark-checkbox-width:20px;
+$checkmark-checkbox-height:20px;
+$checkmark-border-radius: 4px;
 
-.c-form__checkbox {
+span {
+    margin-bottom: 0;
+}
+
+.c-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(sm);
+    width: 100%;
+}
+
+.c-checkbox__group {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(xs);
+}
+
+.c-checkbox {
     display: flex;
     align-items: center;
     gap: spacing.spacing(sm);
     cursor: pointer;
-
-    input {
-        display: none;
-    }
-    span{
-        margin-bottom: 0;
-    }
-}
-
-
-.c-form__checkmark {
-    width: $width;
-    height: $height;
-    border: 2px solid colors.$dark-color;
-    border-radius: 4px;
     position: relative;
-    transition: all 0.2s ease;
 }
 
-.c-form__checkbox input:checked+.c-form__checkmark {
-    border-color: colors.$success-color;
-    background: adjust-color(colors.$success-color, $lightness: 10%);
+.c-checkbox__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.c-form__checkbox input:checked+.c-form__checkmark::after {
-    content: "✔";
-    color: colors.$white-color;
+.c-checkbox__checkmark {
+    width: $checkmark-checkbox-width;
+    height: $checkmark-checkbox-height;
+    border: 2px solid colors.$border-color;
+    border-radius: $checkmark-border-radius;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.c-checkbox__checkmark::after {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    width: 10px;
+    height: 10px;
+    background-color: colors.$white-color;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.c-checkbox__input:checked+.c-checkbox__checkmark {
+    background-color: colors.$primary-color;
+    border-color: colors.$primary-color;
+}
+
+.c-checkbox__input:checked+.c-checkbox__checkmark::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.c-checkbox__link {
+    color: colors.$primary-color;
 }

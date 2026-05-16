@@ -1,102 +1,130 @@
 export function initFormSteps() {
-  const steps =
-    document.querySelectorAll(".c-step");
-    if (!steps.length) return;
+  /* =========================
+     ELEMENTS
+  ========================= */
 
-  const progressItems =
-    document.querySelectorAll(
-      ".c-progress-steps__item"
-    );
+  const steps = document.querySelectorAll(".c-step");
 
-  const progressBar =
-    document.querySelector(".c-progress__bar");
+  if (!steps.length) return;
 
-  const nextBtn =
-    document.querySelector(".next-btn");
+  const progressItems = document.querySelectorAll(".c-progress-steps__item");
 
-  const prevBtn =
-    document.querySelector(".prev-btn");
+  const progressBar = document.querySelector(".c-progress__bar");
+
+  const stepsWrap = document.querySelector(".c-progress-steps__items");
+
+  const nextBtn = document.querySelector(".next-btn");
+
+  const prevBtn = document.querySelector(".prev-btn");
+
+  if (!progressBar || !stepsWrap || !nextBtn || !prevBtn) {
+    return;
+  }
+
+  /* =========================
+     STATE
+  ========================= */
 
   let currentStep = 0;
 
+  /* =========================
+     INIT
+  ========================= */
+
   updateUI();
 
+  /* =========================
+     NEXT BUTTON
+  ========================= */
+
   nextBtn.addEventListener("click", () => {
-
-    if (currentStep < steps.length - 1) {
-
-      currentStep++;
-
-      updateUI();
-
+    /* آخر خطوة */
+    if (currentStep >= steps.length - 1) {
+      return;
     }
 
+    currentStep++;
+
+    updateUI();
   });
+
+  /* =========================
+     PREVIOUS BUTTON
+  ========================= */
 
   prevBtn.addEventListener("click", () => {
-
-    if (currentStep > 0) {
-
-      currentStep--;
-
-      updateUI();
-
+    if (currentStep <= 0) {
+      return;
     }
 
+    currentStep--;
+
+    updateUI();
   });
 
-  function updateUI() {
+  /* =========================
+     UPDATE UI
+  ========================= */
 
-    // STEP CONTENT
+  function updateUI() {
+    /* =========================
+       STEP CONTENT
+    ========================= */
+
     steps.forEach((step) => {
       step.classList.remove("c-step--active");
     });
 
-    steps[currentStep]
-      .classList.add("c-step--active");
+    steps[currentStep].classList.add("c-step--active");
 
-    // PROGRESS ITEMS
+    /* =========================
+       STEP STATES
+    ========================= */
+
     progressItems.forEach((item, index) => {
+      item.classList.remove("is-active", "is-completed");
 
-      item.classList.remove(
-        "is-active",
-        "is-completed"
-      );
-
+      /* الخطوات المكتملة */
       if (index < currentStep) {
-
-        item.classList.add(
-          "is-completed"
-        );
-
+        item.classList.add("is-completed");
       }
 
-      else if (index === currentStep) {
-
-        item.classList.add(
-          "is-active"
-        );
-
+      /* الخطوة الحالية */
+      if (index === currentStep) {
+        item.classList.add("is-active");
       }
-
     });
 
-    // BAR WIDTH
-    const progressWidth =
-      ((currentStep + 1) / steps.length) * 100;
+    /* =========================
+       PROGRESS BAR
+    ========================= */
 
-    progressBar.style.width =
-      `${progressWidth}%`;
+    const totalSteps = steps.length;
 
-    // BUTTONS
-    prevBtn.style.display =
-      currentStep === 0
-        ? "none"
-        : "block";
+    const percent = ((currentStep + 1) / totalSteps) * 100;
 
-    nextBtn.textContent =
-      currentStep === steps.length - 1
-        ? "إنهاء"
-        : "التالي";
+    /* البار العلوي */
+    progressBar.style.width = `${percent}%`;
+
+    /* الخط بين الدوائر */
+    stepsWrap.style.setProperty("--progress-line", `${percent}%`);
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    /* اخفاء زر السابق */
+    prevBtn.style.display = currentStep === 0 ? "none" : "inline-flex";
+
+    /* تغيير نص الزر */
+    if (currentStep === steps.length - 1) {
+      nextBtn.textContent = "تأكيد الحجز";
+
+      nextBtn.classList.add("is-finished");
+    } else {
+      nextBtn.textContent = "التالي";
+
+      nextBtn.classList.remove("is-finished");
+    }
   }
 }

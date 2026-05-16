@@ -4,9 +4,6 @@
 
 .c-form {
     @include mixin.e-form;
-    display: flex;
-    flex-direction: column;
-    gap: spacing.spacing(base);
     width: 100%;
     height: auto;
 

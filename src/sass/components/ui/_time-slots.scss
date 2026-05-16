@@ -1,0 +1,25 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+
+.c-time-slots{
+    display: flex;
+    gap: spacing.spacing(sm);
+    flex-wrap: wrap;
+}
+
+// AVAILABLE
+.c-time-slot.is-available {
+    
+}
+
+// ACTIVE
+.c-time-slot.is-active {
+    background: colors.$success-color;
+}
+
+// DISABLED
+.c-time-slot.is-disabled {
+    opacity: .5;
+    pointer-events: none;
+    cursor: not-allowed;
+}

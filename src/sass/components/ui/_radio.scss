@@ -1,0 +1,69 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../base/fonts" as fonts;
+@use "../../config/colors" as colors;
+$checkmark-radio-width:20px;
+$checkmark-radio-height:20px;
+
+span {
+    margin-bottom: 0;
+}
+
+.c-radios {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(sm);
+    width: 100%;
+}
+
+
+.c-radio__group {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(xs);
+}
+
+.c-radio {
+    display: flex;
+    align-items: center;
+    gap: spacing.spacing(sm);
+    cursor: pointer;
+    position: relative;
+}
+
+.c-radio__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.c-radio__checkmark {
+    width: $checkmark-radio-width;
+    height: $checkmark-radio-height;
+    border-radius: 50%;
+    border: 2px solid colors.$dark-color;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.c-radio__checkmark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: colors.$primary-color;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.3s ease;
+}
+
+.c-radio__input:checked+.c-radio__checkmark {
+    border-color: colors.$primary-color;
+}
+
+.c-radio__input:checked+.c-radio__checkmark::after {
+    transform:
+        translate(-50%, -50%) scale(1);
+}

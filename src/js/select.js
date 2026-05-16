@@ -1,93 +1,54 @@
 export function initSelect() {
+  const selects = document.querySelectorAll(".c-select");
 
-    const selects =
-        document.querySelectorAll(".c-select");
+  if (!selects.length) return;
 
-    selects.forEach((select) => {
+  selects.forEach((select) => {
+    const trigger = select.querySelector(".c-select__trigger");
 
-        const trigger =
-            select.querySelector(".c-select__trigger");
+    const title = select.querySelector(".c-select__title");
 
-        const menu =
-            select.querySelector(".c-select__menu");
+    const menu = select.querySelector(".c-select__menu");
 
-        const options =
-            select.querySelectorAll(".c-select__option");
+    const options = select.querySelectorAll(".c-select__option");
 
-        const hiddenInput =
-            select.querySelector(".c-select__input");
+    const input = select.querySelector(".c-select__input");
 
+    // OPEN MENU
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
 
-        // OPEN / CLOSE ON TRIGGER
-        trigger.addEventListener("click", (e) => {
+      document.querySelectorAll(".c-select__menu").forEach((menuItem) => {
+        if (menuItem !== menu) {
+          menuItem.classList.remove("is-open");
+        }
+      });
 
-            e.stopPropagation();
-
-            // اقفل كل القوائم الثانية أولاً
-            document
-                .querySelectorAll(".c-select__menu")
-                .forEach(m => {
-
-                    if (m !== menu) {
-                        m.classList.remove("is-open");
-                    }
-
-                });
-
-            // toggle للقائمة الحالية فقط
-            menu.classList.toggle("is-open");
-
-        });
-
-
-        // SELECT OPTION
-        options.forEach((option) => {
-
-            option.addEventListener("click", () => {
-
-                const label =
-                    option.textContent;
-
-                const value =
-                    option.dataset.value;
-
-                trigger
-                    .querySelector(".c-select__title")
-                    .textContent = label;
-
-                hiddenInput.value = value;
-
-                menu.classList.remove("is-open");
-
-            });
-
-        });
-
+      menu.classList.toggle("is-open");
     });
 
+    // SELECT OPTION
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        const value = option.dataset.value;
 
-    // CLOSE ON OUTSIDE CLICK
-    document.addEventListener("click", (e) => {
+        const label = option.textContent;
 
-        document
-            .querySelectorAll(".c-select")
-            .forEach((select) => {
+        title.textContent = label;
 
-                const menu =
-                    select.querySelector(".c-select__menu");
+        input.value = value;
 
-                const trigger =
-                    select.querySelector(".c-select__trigger");
+        input.dispatchEvent(new Event("change"));
 
-                const isInside =
-                    select.contains(e.target);
-
-                if (!isInside) {
-                    menu.classList.remove("is-open");
-                }
-
-            });
-
+        menu.classList.remove("is-open");
+      });
     });
+  });
 
+  // OUTSIDE CLICK
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".c-select__menu").forEach((menu) => {
+      menu.classList.remove("is-open");
+    });
+  });
 }

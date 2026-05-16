@@ -1,0 +1,101 @@
+{{#> components-container title='input'}}
+
+<div class="c-inputs">
+  <div class="c-input__group">
+    <label for="fullName" class="c-label"> الاسم الكامل </label>
+
+    <input
+      type="text"
+      class="c-input"
+      name="fullName"
+      id="fullName"
+      placeholder="ادخل الاسم الكامل"
+      required
+    />
+  </div>
+</div>
+
+<div class="c-inputs c-inputs--floating">
+  <div class="c-input__group">
+    <input
+      type="email"
+      class="c-input"
+      name="typeTwo"
+      id="typeTwo"
+      placeholder=" "
+      required
+    />
+
+    <label for="typeTwo" class="c-label--floating"> البريد الإلكتروني </label>
+  </div>
+</div>
+
+<div class="c-inputs c-inputs--phone">
+  <div class="c-input__group">
+    <div class="c-input__fields">
+      <input
+        type="tel"
+        id="phoneNumber"
+        class="c-input c-input--phone"
+        placeholder="ادخل رقم الجوال"
+        required
+      />
+      <div class="c-input__field js-phone-select">
+        <button type="button" class="c-phone__trigger js-phone-trigger">
+          <img
+            src="https://flagcdn.com/w40/sa.png"
+            alt="sa"
+            class="c-flag js-phone-flag"
+          />
+          <span class="c-phone__code js-phone-code">+966</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <ul class="c-select__menu js-phone-menu">
+          <li
+            class="c-select__option c-select__option--phone js-phone-option"
+            data-code="+966"
+          >
+            <img
+              src="https://flagcdn.com/w40/sa.png"
+              alt="sa"
+              class="js-phone-flag"
+            />
+            <span class="c-phone__code">+966</span>
+          </li>
+          <li
+            class="c-select__option c-select__option--phone js-phone-option"
+            data-code="+971"
+          >
+            <img
+              src="https://flagcdn.com/w40/ae.png"
+              alt="ae"
+              class="js-phone-flag"
+            />
+            <span class="c-phone__code">+971</span>
+          </li>
+          <li
+            class="c-select__option c-select__option--phone js-phone-option"
+            data-code="+20"
+          >
+            <img
+              src="https://flagcdn.com/w40/eg.png"
+              alt="eg"
+              class="js-phone-flag"
+            />
+            <span class="c-phone__code">+20</span>
+          </li>
+        </ul>
+        <input type="hidden" name="countryCode" class="js-phone-input" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="c-inputs c-inputs--toggle-password">
+  <input type="password" class="c-input c-input--password" id="password" name="password" placeholder=" " required />
+  <label for="password" class="c-label--floating"> كلمة السر</label>
+  <button type="button" class="c-btn__toggle-password" aria-label="إظهار كلمة السر">
+    <i class="fa-regular fa-eye"></i>
+  </button>
+</div>
+{{/components-container}}

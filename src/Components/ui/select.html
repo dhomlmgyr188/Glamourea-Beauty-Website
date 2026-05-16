@@ -1,0 +1,22 @@
+{{#> components-container title="select"}}
+
+<div class="c-selects">
+  <div class="c-select">
+    <button type="button" class="c-select__trigger">
+      <span class="c-select__title"> اختيار المدينة </span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+
+    <ul class="c-select__menu">
+      <li class="c-select__option" data-value="medina">المدينة المنورة</li>
+
+      <li class="c-select__option" data-value="jeddah">جدة</li>
+
+      <li class="c-select__option" data-value="makkah">مكة المكرمة</li>
+    </ul>
+
+    <input type="hidden" name="city" class="c-select__input" />
+  </div>
+</div>
+
+{{/components-container}}

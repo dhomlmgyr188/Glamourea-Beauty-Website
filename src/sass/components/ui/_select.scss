@@ -1,61 +1,67 @@
 @use "../../utilities/spacing" as spacing;
 @use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
+
+.c-selects {
+    width: 100%;
+}
 
 .c-select {
     position: relative;
     width: 100%;
+}
 
-    &__trigger {
-        span{margin-bottom: 0;}
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        text-align: right;
-        padding: spacing.spacing(sm) spacing.spacing(base);
-        background-color: colors.$white-color;
-        border: 1px solid colors.$border-color;
-        border-radius: spacing.spacing(xs);
-        transition: all 0.3s ease;
+.c-select__trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: spacing.spacing(sm) spacing.spacing(base);
+    border: 1px solid colors.$border-color;
+    border-radius: spacing.spacing(xs);
+    background-color: colors.$white-color;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-        &:focus {
-            outline: none;
-            border-color: colors.$primary-color;
-        }
+    &:hover,
+    &:focus {
+        border-color: colors.$primary-color;
     }
+}
 
-    &__menu {
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        width: 100%;
-        background: colors.$white-color;
-        border: 1px solid colors.$border-color;
-        border-radius: spacing.spacing(xs);
-        padding: 0;
-        display: none;
-        z-index: 10;
+.c-select__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color: colors.$white-color;
+    border: 1px solid colors.$border-color;
+    border-radius: spacing.spacing(xs);
+    overflow: hidden;
+    z-index: 10;
+    padding-left: 0;
+}
+
+.c-select__menu.is-open {
+    display: flex;
+}
+
+.c-select__option {
+    padding: spacing.spacing(sm) spacing.spacing(base);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid colors.$border-btm-color;
+    &:last-child{
+        border-bottom: none;
     }
+}
 
-    &__menu.is-open {
-        display: block;
+.c-select__option:hover {
+    background-color: rgba(colors.$primary-color, 0.03);
+}
 
-        &:focus {
-            border-color: colors.$primary-color;
-        }
-    }
-
-    &__option {
-        padding: spacing.spacing(sm) spacing.spacing(base);
-        cursor: pointer;
-        border-bottom: 1px solid colors.$border-btm-color;
-        &:last-child{
-            border-bottom: none;
-        }
-        transition: all 0.3s ease;
-
-        &:hover {
-            background: colors.$light-color;
-        }
-    }
+.c-select__input {
+    display: none;
 }

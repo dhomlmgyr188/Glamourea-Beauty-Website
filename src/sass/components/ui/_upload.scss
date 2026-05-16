@@ -1,0 +1,90 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
+$min-height-image: 256px;
+$sm-max-width: 128px;
+$md-max-width: 256px;
+$lg-max-width: 512px;
+
+.c-upload {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(sm);
+    width: 100%;
+
+    .c-upload__remove {
+        display: none;
+        align-self: flex-start;
+    }
+}
+
+.c-upload__input {
+    display: none;
+}
+
+.c-upload__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: $min-height-image;
+    height: $min-height-image;
+    border: 2px dashed colors.$border-color;
+    border-radius: spacing.spacing(sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &--sm{max-width: $sm-max-width;}
+    &--md{max-width: $md-max-width;}
+    &--lg{max-width: $lg-max-width;}
+}
+
+.c-upload:hover .c-upload__content {
+    border-color: colors.$primary-color;
+}
+
+.c-upload__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: spacing.spacing(sm);
+    text-align: center;
+    padding: spacing.spacing(lg);
+}
+
+.c-upload__icon {
+    font-size: fonts.fonts(xxl);
+    color: colors.$primary-color;
+}
+
+.c-upload__placeholder-title {
+    font-weight: bold;
+}
+
+.c-upload__hint {
+    font-size: fonts.fonts(sm);
+    color: colors.$hint-color;
+}
+
+.c-upload__image {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+}
+
+.c-upload.is-uploaded {
+    .c-upload__placeholder {
+        display: none;
+    }
+
+    .c-upload__image {
+        display: block;
+    }
+
+    .c-upload__remove {
+        display: inline-flex;
+    }
+}

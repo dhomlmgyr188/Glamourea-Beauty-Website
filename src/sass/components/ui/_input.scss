@@ -2,18 +2,113 @@
 @use "../../config/colors" as colors;
 @use "../../base/fonts" as fonts;
 
-.c-input{
+.c-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(sm);
     width: 100%;
-    padding: spacing.spacing(sm) spacing.spacing(base) ;
+}
+
+.c-input__group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(sm);
+    width: 100%;
+}
+
+.c-input {
+    width: 100%;
+    padding: spacing.spacing(sm) spacing.spacing(base);
     border: 1px solid colors.$border-color;
     border-radius: spacing.spacing(xs);
     transition: all 0.3s ease;
+
     &:focus {
         outline: none;
         border-color: colors.$primary-color;
     }
-    &:-webkit-autofill{
+
+    &:-webkit-autofill {
         box-shadow: 0 0 0px 1000px colors.$white-color inset;
         -webkit-text-fill-color: colors.$dark-color;
     }
+}
+
+.c-input--phone {
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    direction: rtl;
+}
+
+.c-input__fields {
+    display: flex;
+    flex-direction: row-reverse;
+    border: 1px solid colors.$border-color;
+    border-radius: spacing.spacing(xs);
+    overflow: visible;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: colors.$primary-color;
+    }
+}
+
+.c-input__field {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.c-phone__trigger {
+    display: flex;
+    align-items: center;
+    gap: spacing.spacing(sm);
+    padding: spacing.spacing(sm) spacing.spacing(base);
+    border-radius: spacing.spacing(xs);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 100%;
+    border: none;
+    background: colors.$light-color;
+    white-space: nowrap;
+}
+
+.c-flag {
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.c-input__field.is-open .c-select__menu {
+    display: block;
+}
+
+.c-select__option--phone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c-inputs--toggle-password {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.c-input--password {
+    width: 100%;
+}
+
+.c-btn__toggle-password {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,0 +1,38 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../base/fonts" as fonts;
+@use "../../config/colors" as colors;
+$min-height-textarea: 64px;
+$max-height-textarea: 256px;
+
+.c-textareas {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.spacing(sm);
+    width: 100%;
+}
+
+.c-textarea {
+    width: 100%;
+    padding: spacing.spacing(sm) spacing.spacing(base);
+    border: 1px solid colors.$border-color;
+    border-radius: spacing.spacing(xs);
+    min-height: $min-height-textarea;
+    max-height: $max-height-textarea;
+    resize: vertical;
+    transition: all 0.3s ease;
+
+    &:focus {
+        outline: none;
+        border-color: colors.$primary-color;
+    }
+
+    &:-webkit-autofill {
+        box-shadow: 0 0 0px 1000px colors.$white-color inset;
+        -webkit-text-fill-color: colors.$dark-color;
+    }
+}
+
+.c-textarea__hint {
+    font-size: fonts.fonts(sm);
+    color: colors.$hint-color;
+}
