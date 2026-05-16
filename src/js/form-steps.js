@@ -1,130 +1,90 @@
 export function initFormSteps() {
-  /* =========================
-     ELEMENTS
-  ========================= */
-
   const steps = document.querySelectorAll(".c-step");
 
   if (!steps.length) return;
 
   const progressItems = document.querySelectorAll(".c-progress-steps__item");
-
   const progressBar = document.querySelector(".c-progress__bar");
-
   const stepsWrap = document.querySelector(".c-progress-steps__items");
-
   const nextBtn = document.querySelector(".next-btn");
-
   const prevBtn = document.querySelector(".prev-btn");
 
-  if (!progressBar || !stepsWrap || !nextBtn || !prevBtn) {
-    return;
-  }
-
-  /* =========================
-     STATE
-  ========================= */
+  if (!progressBar || !stepsWrap || !nextBtn || !prevBtn) return;
 
   let currentStep = 0;
 
-  /* =========================
-     INIT
-  ========================= */
-
   updateUI();
 
-  /* =========================
-     NEXT BUTTON
-  ========================= */
-
+  /* NEXT */
   nextBtn.addEventListener("click", () => {
-    /* آخر خطوة */
-    if (currentStep >= steps.length - 1) {
+
+    if (currentStep === steps.length - 2) {
+      // من المراجعة → الدفع
+      currentStep++;
+      updateUI();
       return;
     }
+
+    if (currentStep === steps.length - 1) {
+      // هنا الدفع الحقيقي (API لاحقًا)
+      console.log("تنفيذ الدفع...");
+      return;
+    }
+
+    if (currentStep >= steps.length - 1) return;
 
     currentStep++;
-
     updateUI();
   });
 
-  /* =========================
-     PREVIOUS BUTTON
-  ========================= */
-
+  /* PREV */
   prevBtn.addEventListener("click", () => {
-    if (currentStep <= 0) {
-      return;
-    }
-
+    if (currentStep <= 0) return;
     currentStep--;
-
     updateUI();
   });
-
-  /* =========================
-     UPDATE UI
-  ========================= */
 
   function updateUI() {
-    /* =========================
-       STEP CONTENT
-    ========================= */
-
-    steps.forEach((step) => {
-      step.classList.remove("c-step--active");
-    });
-
+    steps.forEach((step) => step.classList.remove("c-step--active"));
     steps[currentStep].classList.add("c-step--active");
-
-    /* =========================
-       STEP STATES
-    ========================= */
 
     progressItems.forEach((item, index) => {
       item.classList.remove("is-active", "is-completed");
 
-      /* الخطوات المكتملة */
-      if (index < currentStep) {
-        item.classList.add("is-completed");
-      }
-
-      /* الخطوة الحالية */
-      if (index === currentStep) {
-        item.classList.add("is-active");
-      }
+      if (index < currentStep) item.classList.add("is-completed");
+      if (index === currentStep) item.classList.add("is-active");
     });
 
-    /* =========================
-       PROGRESS BAR
-    ========================= */
-
     const totalSteps = steps.length;
-
     const percent = ((currentStep + 1) / totalSteps) * 100;
 
-    /* البار العلوي */
     progressBar.style.width = `${percent}%`;
-
-    /* الخط بين الدوائر */
     stepsWrap.style.setProperty("--progress-line", `${percent}%`);
 
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    /* اخفاء زر السابق */
     prevBtn.style.display = currentStep === 0 ? "none" : "inline-flex";
 
-    /* تغيير نص الزر */
-    if (currentStep === steps.length - 1) {
-      nextBtn.textContent = "تأكيد الحجز";
-
+    if (currentStep === steps.length - 2) {
+      nextBtn.textContent = "تأكيد والانتقال للدفع";
       nextBtn.classList.add("is-finished");
+    } else if (currentStep === steps.length - 1) {
+      nextBtn.textContent = "تأكيد الدفع";
     } else {
       nextBtn.textContent = "التالي";
-
       nextBtn.classList.remove("is-finished");
     }
   }
+
+  /* EDIT BUTTONS (الصحيح فقط) */
+  document.querySelectorAll(".c-review__action").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const step = Number(e.currentTarget.dataset.step);
+
+      if (isNaN(step)) return;
+
+      currentStep = step;
+      updateUI();
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
 }

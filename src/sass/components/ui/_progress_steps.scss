@@ -74,16 +74,3 @@ $progress-bg-height: spacing.spacing(base);
 .is-completed .c-progress-steps__label {
     color: colors.$success-color;
 }
-
-.c-step {
-    display: none;
-}
-
-.c-step--active {
-    display: block;
-}
-
-.c-actions {
-    display: flex;
-    justify-content: space-between;
-}

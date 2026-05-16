@@ -8,3 +8,26 @@
     gap: spacing.spacing(xl);
     max-width: 900px;
 }
+
+.c-step {
+    display: none;
+}
+
+.c-step__title {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    margin-bottom: spacing.spacing(base);
+    color: colors.$primary-color;
+
+}
+
+.c-step--active {
+    display: block;
+}
+
+.c-actions {
+    display: flex;
+    justify-content: space-between;
+}

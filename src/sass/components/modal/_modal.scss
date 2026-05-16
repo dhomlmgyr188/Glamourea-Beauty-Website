@@ -3,71 +3,123 @@
 @use "../../base/fonts" as fonts;
 @use "../../utilities/mixin" as mixin;
 
-.c-modal{
-    @include mixin.e-modal;
+/* =========================
+   MODAL
+========================= */
+.c-modal {
     position: fixed;
     inset: 0;
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 999;
-    &__title {margin-bottom: 0;}
-    &__desc {margin-bottom: 0; &--success{color: colors.$success-color;}}
-    &__btn{
-        outline: none;
-        border: none;
-        background-color: transparent;
-        text-align: center;
-        font-size: fonts.fonts(lg);
-        i{
-            margin-left: 0;
-        }
-        &--close{
-            color: colors.$danger-color;
-            border-radius: 50%;
-        }
-    }
 }
-.c-modal.active{
+
+.c-modal.active {
     display: flex;
 }
-.c-modal__overlay{
-    position: absolute;
+
+/* =========================
+   OVERLAY
+========================= */
+.c-modal__overlay {
+    position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: 1;
 }
-.c-modal__header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0;
-}
-.c-modal__content{
+
+/* =========================
+   CONTENT
+========================= */
+.c-modal__content {
     position: relative;
-    background-color: colors.$white-color;
-    border-radius: spacing.spacing(sm);
     z-index: 2;
-    width: 100%;
-    max-width: 500px;
-    padding: spacing.spacing(base);
+    @include mixin.e-modal;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: spacing.spacing(base);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    margin-inline: spacing.spacing(base);
+    overflow: hidden;
+}
 
-    > *:not(:last-child) {
-        width: 100%;
-        padding-bottom: spacing.spacing(base);
-        border-bottom: 1px solid colors.$border-btm-color;
-    }
+/* =========================
+   HEADER
+========================= */
+.c-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: spacing.spacing(base);
+    padding-bottom: spacing.spacing(base);
+    border-bottom: 1px solid colors.$border-btm-color;
+    flex-shrink: 0;
 }
-.c-modal__close{
-    position: absolute;
-    top: spacing.spacing(sm);
-    right: spacing.spacing(sm);
+
+.c-modal__title {
+    margin-bottom: 0;
 }
-.c-modal__actions{
+
+/* =========================
+   BODY
+========================= */
+.c-modal__body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding-block: spacing.spacing(base);
+}
+
+/* =========================
+   IMAGE
+========================= */
+.c-modal__body img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================
+   FOOTER / ACTIONS
+========================= */
+.c-modal__actions {
     display: flex;
     flex-wrap: wrap;
     gap: spacing.spacing(base);
+    padding-top: spacing.spacing(base);
+    border-top: 1px solid colors.$border-btm-color;
+    flex-shrink: 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.c-modal__btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: fonts.fonts(lg);
+    cursor: pointer;
+
+    i {
+        margin-left: 0;
+    }
+}
+
+.c-modal__btn--close {
+    color: colors.$danger-color;
+    border-radius: 50%;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+.c-modal__desc {
+    margin-bottom: 0;
 }

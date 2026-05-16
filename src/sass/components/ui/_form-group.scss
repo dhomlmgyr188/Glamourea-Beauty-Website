@@ -7,28 +7,3 @@
     gap: spacing.spacing(sm);
     width: 100%;
 }
-
-.c-form__groups {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: spacing.spacing(base);
-    &--single{
-        margin-top: spacing.spacing(base);
-    }
-}
-
-@media (max-width: 768px) {
-    .c-form__groups {
-        grid-template-columns: 1fr;
-    }
-}
-
-.c-form__groups--one {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: spacing.spacing(base);
-}
-
-.c-form__group--password {
-    position: relative;
-}

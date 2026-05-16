@@ -1,0 +1,92 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
+@use "../../config/layout" as layout;
+
+.e-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.c-grid {
+    display: grid;
+    justify-items: start;
+    align-items: start; 
+    width: 100%;
+
+    &--5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    &--4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    &--auto-sm {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    &--auto-md {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    &--auto-lg {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    &--gap-xs {
+        gap: spacing.spacing(xs);
+    }
+
+    &--gap-sm {
+        gap: spacing.spacing(sm);
+    }
+
+    &--gap-md {
+        gap: spacing.spacing(base);
+    }
+
+    &--gap-lg {
+        gap: spacing.spacing(lg);
+    }
+}
+
+@media (max-width: layout.$lg) {
+    .c-grid {
+
+        &--5,
+        &--4,
+        &--3,
+        &--2,
+        &--1 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: layout.$sm) {
+    .c-grid {
+
+        &--5,
+        &--4,
+        &--3,
+        &--2,
+        &--1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

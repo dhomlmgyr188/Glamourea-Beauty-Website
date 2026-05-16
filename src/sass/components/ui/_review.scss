@@ -1,0 +1,32 @@
+@use "../../utilities/spacing" as spacing;
+@use "../../config/colors" as colors;
+@use "../../base/fonts" as fonts;
+@use "../../config/layout" as layout;
+
+.c-review__title {
+    font-size: fonts.fonts(lg);
+    font-weight: bold;
+    color: colors.$info-color;
+    &--pricing{
+        color: colors.$secondary-color;
+    }
+    &--session{
+        color: colors.$secondary-color;
+    }
+
+    &--base {
+        font-size: fonts.fonts(base);
+    }
+}
+
+.c-review__action {
+    text-align: right;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: colors.$white-color;
+
+    i {
+        color: colors.$info-color;
+    }
+}

@@ -1,28 +1,53 @@
 export function initModal() {
-  const modal = document.getElementById("modal");
-  const openButton = document.getElementById("openModal");
+  const openButtons = document.querySelectorAll(".js-open-modal");
   const closeButtons = document.querySelectorAll(".js-close-modal");
-  const overlay = document.querySelector(".c-modal__overlay");
 
-  if (!modal || !openButton || !overlay) return;
+  function closeModal(modal) {
+    modal.classList.remove("active");
+  }
 
-  openButton.addEventListener("click", () => {
+  function openModal(modal) {
     modal.classList.add("active");
-  });
+  }
 
-  closeButtons.forEach(btn => {
+  // OPEN
+  openButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      modal.classList.remove("active");
+      const modalId = btn.dataset.modal;
+      const modal = document.getElementById(modalId);
+
+      if (!modal) return;
+
+      openModal(modal);
     });
   });
 
-  overlay.addEventListener("click", () => {
-    modal.classList.remove("active");
+  // CLOSE (button)
+  closeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".c-modal");
+      if (!modal) return;
+
+      closeModal(modal);
+    });
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      modal.classList.remove("active");
-    }
+  // CLOSE (overlay)
+  document.addEventListener("click", (e) => {
+    const overlay = e.target.closest(".c-modal__overlay");
+
+    if (!overlay) return;
+
+    const modal = overlay.closest(".c-modal");
+    if (modal) closeModal(modal);
+  });
+
+  // ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+
+    document.querySelectorAll(".c-modal.active").forEach((modal) => {
+      closeModal(modal);
+    });
   });
 }
