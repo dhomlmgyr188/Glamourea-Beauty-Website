@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>register</title>
+  <script type="module" crossorigin src="/assets/register-hKxNDw0Z.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-CB61bQUN.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-DHFnDbKY.css">
+</head>
+
+<body>
+  <main class="components-container">
+    <form action="#" method="post" class="c-form c-form--register">
+      <h2 class="c-form__title">تسجيل جديد</h2>
+      <div class="c-form__group">
+        <input
+          type="text"
+          class="c-input"
+          name="username"
+          id="username"
+          placeholder="  "
+          required
+        />
+        <label for="username" class="c-label--floating"> اسم المستخدم</label>
+      </div>
+      <div class="c-form__group">
+        <input
+          type="email"
+          class="c-input"
+          name="email"
+          id="email"
+          placeholder="  "
+          required
+        />
+        <label for="email" class="c-label--floating"> البريد الإلكتروني</label>
+      </div>
+      <div class="c-form__group">
+        <div class="c-inputs c-inputs--phone">
+          <div class="c-input__group">
+            <div class="c-input__fields">
+              <input
+                type="tel"
+                id="phoneNumber"
+                class="c-input c-input--phone"
+                placeholder="ادخل رقم الجوال"
+                required
+              />
+              <div class="c-input__field js-phone-select">
+                <button type="button" class="c-phone__trigger js-phone-trigger">
+                  <img
+                    src="https://flagcdn.com/w40/sa.png"
+                    alt="sa"
+                    class="c-flag js-phone-flag"
+                  />
+                  <span class="c-phone__code js-phone-code">+966</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <ul class="c-select__menu js-phone-menu">
+                  <li
+                    class="c-select__option c-select__option--phone js-phone-option"
+                    data-code="+966"
+                  >
+                    <img
+                      src="https://flagcdn.com/w40/sa.png"
+                      alt="sa"
+                      class="js-phone-flag"
+                    />
+                    <span class="c-phone__code">+966</span>
+                  </li>
+                  <li
+                    class="c-select__option c-select__option--phone js-phone-option"
+                    data-code="+971"
+                  >
+                    <img
+                      src="https://flagcdn.com/w40/ae.png"
+                      alt="ae"
+                      class="js-phone-flag"
+                    />
+                    <span class="c-phone__code">+971</span>
+                  </li>
+                  <li
+                    class="c-select__option c-select__option--phone js-phone-option"
+                    data-code="+20"
+                  >
+                    <img
+                      src="https://flagcdn.com/w40/eg.png"
+                      alt="eg"
+                      class="js-phone-flag"
+                    />
+                    <span class="c-phone__code">+20</span>
+                  </li>
+                </ul>
+                <input type="hidden" name="countryCode" class="js-phone-input" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-form__group">
+        <div class="c-inputs c-inputs--toggle-password">
+            <input type="password" class="c-input c-input--password" id="password" name="password" placeholder=" " required />
+            <label for="password" class="c-label--floating"> كلمة السر</label>
+            <button type="button" class="c-btn__toggle-password" aria-label="إظهار كلمة السر">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+        </div>
+      </div>
+      <div class="c-form__group">
+            <div class="c-inputs c-inputs--toggle-password">
+            <input type="password" class="c-input c-input--password" id="confirm-password" name="confirm-password" placeholder=" " required />
+            <label for="confirm-password" class="c-label--floating"> كلمة السر</label>
+            <button type="button" class="c-btn__toggle-password" aria-label="إظهار كلمة السر">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+            </div>
+      </div>
+      <div class="c-form__group">
+        <div class="c-checkboxes">
+          <div class="c-checkbox__group">
+            <label class="c-checkbox">
+              <input type="checkbox" name="termsOfUse" class="c-checkbox__input" />
+    
+              <span class="c-checkbox__checkmark"></span>
+    
+              <span class="c-checkbox__label">
+                لقد قرأت ووافقت على
+    
+                <a
+                  href="terms-of-use.html"
+                  target="_blank"
+                  class="c-checkbox__link"
+                >
+                  الشروط والأحكام
+                </a>
+              </span>
+            </label>
+    
+            <!-- CHECKBOX -->
+            <label class="c-checkbox">
+              <input
+                type="checkbox"
+                name="privacyPolicy"
+                class="c-checkbox__input"
+              />
+    
+              <span class="c-checkbox__checkmark"></span>
+    
+              <span class="c-checkbox__label">
+                لقد قرأت ووافقت على
+    
+                <a
+                  href="privacy-policy.html"
+                  target="_blank"
+                  class="c-checkbox__link"
+                >
+                  سياسة الخصوصية
+                </a>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <p class="c-form__error" id="registerError"></p>
+      <button type="submit" class="c-btn c-btn--primary">تسجيل جديد</button>
+      <p class="c-form__help">
+        لديك حساب بالفعل؟
+        <a href="login-form.html" class="c-form__link">سجل الدخول</a>
+      </p>
+      <p class="c-form__help c-form__help--another">أو سجل الدخول باستخدام</p>
+      <div class="c-form__socials">
+        <a href="#" class="c-btn c-btn--icon--google" aria-label="Google">
+          <i class="fa-brands fa-google"></i>
+        </a>
+        <a href="#" class="c-btn c-btn--icon--facebook" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="#" class="c-btn c-btn--icon--twitter" aria-label="Twitter">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+    </form>
+    
+  </main>
+
+</body>
+
+</html>
