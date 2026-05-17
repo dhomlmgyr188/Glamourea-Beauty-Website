@@ -2,6 +2,7 @@
 @use "../../config/colors" as colors;
 @use "../../base/fonts" as fonts;
 @use "../../config/layout" as layout;
+@use "../../utilities/mixin" as mixin;
 
 .c-review__title {
     font-size: fonts.fonts(lg);
@@ -29,4 +30,11 @@
     i {
         color: colors.$info-color;
     }
+}
+
+.c-review{
+    border-radius: spacing.spacing(sm);
+    position: relative;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+    padding: spacing.spacing(base);
 }

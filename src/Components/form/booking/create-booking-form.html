@@ -1,12 +1,10 @@
 {{#> components-container title="create-booking"}}
 <form action="#" method="post" class="c-form c-form--create-booking">
   <div class="c-progress-wrapper">
-    <!-- BAR -->
     <div class="c-progress">
       <div class="c-progress__bar"></div>
     </div>
 
-    <!-- STEPS -->
     <div class="c-progress-steps__items">
       <div class="c-progress-steps__item is-active">
         <div class="c-progress-steps__number">20%</div>
@@ -36,7 +34,6 @@
   </div>
 
   <div class="c-steps">
-    <!-- STEP 1 -->
     <div class="c-step c-step--active">
       <h2 class="c-step__title">البيانات الشخصية</h2>
 
@@ -45,6 +42,7 @@
           <input type="text" class="c-input" id="name" name="name" placeholder="" />
           <label for="name" class="c-label--floating">الاسم الكامل</label>
         </div>
+        
         <div class="c-form__group">
           <div class="c-inputs c-inputs--phone">
             <div class="c-input__group">
@@ -77,11 +75,13 @@
             </div>
           </div>
         </div>
+        
         <div class="c-form__group">
           <input type="email" class="c-input" id="email" name="email" placeholder="" />
           <label for="email" class="c-label--floating">البريد الإلكتروني (اختياري)
           </label>
         </div>
+        
         <div class="c-form__group">
           <div class="c-selects">
             <div class="c-select">
@@ -109,12 +109,10 @@
       </div>
     </div>
 
-    <!-- STEP 2 -->
     <div class="c-step">
       <h2 class="c-step__title">تفاصيل الحجز</h2>
 
       <div class="c-grid c-grid--2 c-grid--gap-md">
-        <!-- BRANCH -->
         <div class="c-form__group">
           <div class="c-selects">
             <div class="c-select">
@@ -134,7 +132,6 @@
           </div>
         </div>
 
-        <!-- SPECIALIST -->
         <div class="c-form__group">
           <div class="c-selects">
             <div class="c-select">
@@ -160,19 +157,16 @@
           </div>
         </div>
 
-        <!-- DATE -->
         <div class="c-form__group">
           <input type="text" class="c-input" id="bookingDate" name="bookingDate" autocomplete="off"
             placeholder="اختيار تاريخ الحجز" />
         </div>
 
-        <!-- TIME SLOTS -->
         <div class="c-form__group">
           <div class="c-time-slots" id="timeSlots"></div>
 
           <input type="hidden" id="bookingTime" name="bookingTime" />
 
-          <!-- placeholder -->
           <p class="c-time-slots__placeholder">
             اختر الأخصائية والتاريخ لعرض الأوقات المتاحة
           </p>
@@ -180,9 +174,9 @@
       </div>
     </div>
 
-    <!-- STEP 3 -->
     <div class="c-step">
       <h2 class="c-step__title">تفاصيل الشعر والمعالجة</h2>
+
       <div class="c-grid c-grid--1 c-grid--gap-md">
         <div class="c-form__group">
           <div class="c-selects">
@@ -365,12 +359,10 @@
       </div>
     </div>
 
-    <!-- STEP 4 -->
     <div class="c-step">
       <h2 class="c-step__title">مراجعة الحجز</h2>
 
-      <div class="c-reviews c-grid c-grid--gap-md c-grid--1">
-        <!-- Peronsal Info -->
+      <div class="c-reviews c-grid c-grid--gap-md c-grid--2">
         <div class="c-review c-grid c-grid--gap-xs c-review--personal-info">
           <button class="c-review__action" type="button" data-step="0">
             <span class="c-review__title">البيانات الشخصية</span>
@@ -486,47 +478,44 @@
             </div>
           </div>
         </div>
-        <!-- pricing Info -->
-        <div class="c-review c-grid c-grid--gap-xs c-review--pricing-info">
-          <span class="c-review__title c-review__title--pricing">التسعيرة الشاملة</span>
-          <div class="c-review__items">
-            <div class="c-review__item">
-              <span class="c-review__label">السعر قبل الضريبة: </span>
-              <strong class="c-review__value" id="reviewSubtotal">--</strong>
-            </div>
-            <div class="c-review__item">
-              <span class="c-review__label">ضريبة القيمة المضافة 15%: </span>
-              <strong class="c-review__value" id="reviewVat">--</strong>
-            </div>
-            <div class="c-review__item">
-              <span class="c-review__label">السعر شامل الضريبة: </span>
-              <strong class="c-review__value" id="reviewTotal">--</strong>
+        <div class="c-grid c-grid--gap-md">
+          <div class="c-review c-grid c-grid--gap-xs c-review--pricing-info">
+            <span class="c-review__title c-review__title--pricing">التسعيرة الشاملة</span>
+            <div class="c-review__items">
+              <div class="c-review__item">
+                <span class="c-review__label">السعر قبل الضريبة: </span>
+                <strong class="c-review__value" id="reviewSubtotal">--</strong>
+              </div>
+              <div class="c-review__item">
+                <span class="c-review__label">ضريبة القيمة المضافة 15%: </span>
+                <strong class="c-review__value" id="reviewVat">--</strong>
+              </div>
+              <div class="c-review__item">
+                <span class="c-review__label">السعر شامل الضريبة: </span>
+                <strong class="c-review__value" id="reviewTotal">--</strong>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- session Info -->
-        <div class="c-review c-grid c-grid--gap-xs c-review--session-info">
-          <span class="c-review__title c-review__title--session">مدة الجلسة </span>
-          <div class="c-review__items">
-            <div class="c-review__item">
-              <span class="c-review__label">مدة الجلسة المتوقعة: </span>
-              <strong class="c-review__value" id="reviewDuration">--</strong>
+          <div class="c-review c-grid c-grid--gap-xs c-review--session-info">
+            <span class="c-review__title c-review__title--session">مدة الجلسة </span>
+            <div class="c-review__items">
+              <div class="c-review__item">
+                <span class="c-review__label">مدة الجلسة المتوقعة: </span>
+                <strong class="c-review__value" id="reviewDuration">--</strong>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- STEP 5 -->
     <div class="c-step">
       <h2 class="c-step__title">الدفع</h2>
     </div>
   </div>
 
-  <!-- ACTIONS -->
   <div class="c-actions">
     <button type="button" class="c-btn prev-btn">السابق</button>
-
     <button type="button" class="c-btn c-btn--primary next-btn">التالي</button>
   </div>
 </form>

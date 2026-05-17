@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>login</title>
+  <script type="module" crossorigin src="/Glamourea-Beauty-Website/assets/login-B4lIhpCA.js"></script>
+  <link rel="modulepreload" crossorigin href="/Glamourea-Beauty-Website/assets/main-DJXCxVjt.js">
+  <link rel="stylesheet" crossorigin href="/Glamourea-Beauty-Website/assets/main-DsYtMAPI.css">
+</head>
+
+<body>
+  <main class="components-container">
+    
+    <form action="#" method="post" class="c-form c-form--login">
+      <h2 class="c-form__title">تسجيل الدخول</h2>
+      <div class="c-form__group">
+        <input type="email" class="c-input" name="email" id="email" placeholder="  " required />
+        <label for="email" class="c-label--floating"> البريد الإلكتروني</label>
+      </div>
+      <p class="c-form__error" id="loginEmailError"></p>
+      <div class="c-form__group c-form__group--password">
+        <div class="c-inputs c-inputs--toggle-password">
+          <input type="password" class="c-input c-input--password" id="password" name="password" placeholder=" " required />
+          <label for="password" class="c-label--floating"> كلمة السر</label>
+          <button type="button" class="c-btn__toggle-password" aria-label="إظهار كلمة السر">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <p class="c-form__error" id="loginPasswordError"></p>
+      <a href="reset-password-form.html" class="c-form__link">نسيت كلمة السر؟</a>
+      <button type="submit" class="c-btn c-btn--primary">تسجيل الدخول</button>
+      <p class="c-form__help">
+        ليس لديك حساب؟
+        <a href="register-form.html" class="c-form__link">سجل الأن</a>
+      </p>
+      <p class="c-form__help c-form__help--another">أو سجل الدخول باستخدام</p>
+      <div class="c-form__socials">
+        <a href="#" class="c-btn c-btn--icon--google" aria-label="Google">
+          <i class="fa-brands fa-google"></i>
+        </a>
+        <a href="#" class="c-btn c-btn--icon--facebook" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="#" class="c-btn c-btn--icon--twitter" aria-label="Twitter">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+    </form>
+    
+  </main>
+
+</body>
+
+</html>

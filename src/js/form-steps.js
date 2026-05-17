@@ -64,7 +64,7 @@ export function initFormSteps() {
     prevBtn.style.display = currentStep === 0 ? "none" : "inline-flex";
 
     if (currentStep === steps.length - 2) {
-      nextBtn.textContent = "تأكيد والانتقال للدفع";
+      nextBtn.textContent = "الإنتقال للدفع";
       nextBtn.classList.add("is-finished");
     } else if (currentStep === steps.length - 1) {
       nextBtn.textContent = "تأكيد الدفع";

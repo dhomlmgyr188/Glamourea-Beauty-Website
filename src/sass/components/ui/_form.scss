@@ -25,10 +25,19 @@
     }
 }
 
-.c-form__help {
-    &--border-bottom {
-        border-bottom: 1px solid colors.$border-btm-color;
-        padding-bottom: spacing.spacing(base);
+.c-form__help--another{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: spacing.spacing(base);
+
+    &::before,
+    &::after{
+        content: "";
+        display: block;
+        flex: 1;
+        height: 1px;
+        background-color: colors.$border-color;
     }
 }
 
@@ -37,4 +46,8 @@
     gap: spacing.spacing(base);
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.c-form__socials .c-btn{
+    flex: 1;
 }

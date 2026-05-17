@@ -3,29 +3,39 @@
 @use "../../base/fonts" as fonts;
 @use "sass:color";
 
-.c-btn{
+.c-btn {
     text-align: center;
-    display: inline-block;
-    padding: spacing.spacing(sm) spacing.spacing(lg);
-    border: none;
-    outline: none;
+    padding: spacing.spacing(sm) spacing.spacing(base);
+    border: 1px solid colors.$dark-color;
     border-radius: spacing.spacing(xs);
+    outline: none;
     color: colors.$dark-color ;
     background-color: colors.$white-color;
-    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
     cursor: pointer;
 
-    &:hover{
-        transform: translateY(-3px);
-        box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2);
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 300ms ease, background-color 300ms ease;
+        pointer-events: none;
+        background-color: rgba(255, 255, 255, 0.1);
     }
-    &:active{
-        box-shadow: inset 0 0 0 2px rgba(0,0,0,0.3);
+
+    &:hover::before {
+        opacity: 1;
     }
-    &:focus{
-        box-shadow: inset 0 0 0 2px rgba(0,0,0,0.4);
+
+    &:active::before {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.05);
     }
+
     &--icon--google,
     &--icon--facebook,
     &--icon--twitter,
@@ -34,54 +44,60 @@
     &--info,
     &--danger,
     &--success,
-    &--warning,
-    &--ghost{
+    &--warning {
+        border: none;
+        box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 300ms ease-in-out;
         color: colors.$white-color;
     }
 }
 
-.c-btn--secondary{
+.c-btn--secondary {
     background-color: colors.$secondary-color;
 }
 
-.c-btn--primary{
+.c-btn--primary {
     background-color: colors.$primary-color;
 }
-.c-btn--info{
+
+.c-btn--info {
     background-color: colors.$info-color;
 }
-.c-btn--danger{
+
+.c-btn--danger {
     background-color: colors.$danger-color;
 }
-.c-btn--success{
+
+.c-btn--success {
     background-color: colors.$success-color;
 }
-.c-btn--warning{
+
+.c-btn--warning {
     background-color: colors.$warning-color;
 }
-.c-btn--sm{
+
+.c-btn--sm {
     font-size: fonts.fonts(sm);
     padding: spacing.spacing(xs) auto;
 }
-.c-btn--lg{
+
+.c-btn--lg {
     font-size: fonts.fonts(lg);
     padding: spacing.spacing(base) spacing.spacing(xl);
 }
-.c-btn--ghost{
-    background: transparent;
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6);
 
-    &:hover{
-        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7);
-    }
-    &:active{
-        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
-    }
-    &:focus{
-        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9);
-    }
+.c-btn--ghost {
+    background: transparent;
 }
 
-.c-btn--icon--google{ background-color:colors.$google-color ;}
-.c-btn--icon--facebook{ background-color: colors.$facebook-color;}
-.c-btn--icon--twitter{ background-color: colors.$twitter-color;}
+.c-btn--icon--google {
+    background-color: colors.$google-color ;
+}
+
+.c-btn--icon--facebook {
+    background-color: colors.$facebook-color;
+}
+
+.c-btn--icon--twitter {
+    background-color: colors.$twitter-color;
+}
